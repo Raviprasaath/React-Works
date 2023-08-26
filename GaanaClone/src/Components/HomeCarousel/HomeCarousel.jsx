@@ -14,8 +14,9 @@ import image7 from "../../assets/home-pic7.webp";
 export default class HomeCarousel extends Component {
   render() {
     let settings = {
-      dots: true,
+      dots: false,
       infinite: true,
+      autoplay: true,
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 3,
@@ -27,36 +28,53 @@ export default class HomeCarousel extends Component {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true,
-          },
+            dots: true
+          }
         },
+        {
+          breakpoint: 950,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+
         {
           breakpoint: 600,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            initialSlide: 2,
-          },
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 580,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1,
-          },
+            slidesToScroll: 1
+          }
         },
-        {
-          breakpoint: 280,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
+      ]
     };
+
     return (
       <div className="home-carousel">
-        <h2> Single Item</h2>
         <Slider {...settings}>
           <div>
             <img className="sliding-img" src={image1} alt="image" />

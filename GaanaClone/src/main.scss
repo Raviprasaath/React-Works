@@ -280,11 +280,84 @@ body {
 .home-carousel {
   padding-top: 150px;
   width: 90%;
-  margin: auto;
-
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
 
     .sliding-img {
-      width: 300px;
+      width: 250px;
     }
 }
+
+
+
+@media screen and (min-width: 360px) {
+  .home-carousel {
+    padding-left: 30px;
+      .sliding-img {
+        width: 320px;
+      }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .home-carousel {
+    padding-left: 35px;
+  
+      .sliding-img {
+        width: 220px;
+      }
+  }
+}
+
+@media screen and (min-width: 580px) {
+  .home-carousel {
+    padding-left: 15px;
+    margin: auto;  
+  
+      .sliding-img {
+        width: 260px;
+      }
+  }
+}
+
+@media screen and (min-width: 680px) {
+
+}
+
+@media screen and (min-width: 768px) {
+  .home-carousel {
+    padding-left: 15px;
+    margin: auto;  
+  
+      .sliding-img {
+        width: 300px;
+      }
+  }
+}
+@media screen and (min-width: 960px) {
+  .home-carousel {
+    padding-left: 15px;
+    margin: auto;  
+  
+      .sliding-img {
+        width: 300px;
+      }
+  }
+}
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (min-width: 1106px) {
+  .home-carousel {
+    padding-left: 15px;
+    margin: auto;
+
+      .sliding-img {
+        width: 600px;
+      }
+  }
+}
+@media screen and (min-width: 1332px) {}

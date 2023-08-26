@@ -7,6 +7,7 @@ import HomeCarousel from "./Components/HomeCarousel/HomeCarousel.jsx";
 import Test from "./Components/Test.jsx";
 import { FaBars } from "react-icons/fa";
 import NavbarTop from "./Components/NavbarSide/NavbarTop.jsx";
+import Trending from "./Components/HomeCarousels-types/Trending.jsx";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +46,7 @@ function App() {
       </div>
       <NavbarTop />
       <HomeCarousel/>
+      <Trending/>
 
     </>
   );
