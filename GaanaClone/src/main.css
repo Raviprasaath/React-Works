@@ -39,13 +39,14 @@ body {
 }
 
 .navbar-btn {
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 10px;
   color: var(--SecondaryColor);
   background-color: transparent;
   border: none;
   font-size: 1.2rem;
+  z-index: 3;
 }
 
 .overlay {
@@ -74,7 +75,7 @@ body {
   background: var(--PrimaryColor2);
   color: var(--SecondaryColor);
   transition: left 0.3s ease-in-out;
-  z-index: 5;
+  z-index: 3;
 }
 .navbar .sideNav.open {
   left: 0;
@@ -118,14 +119,19 @@ body {
   font-weight: 600;
   color: var(--SecondaryColor4);
 }
-.navbar .navbar-top {
-  padding-left: 40px;
+
+.navbar-top {
+  position: fixed;
+  width: 90%;
+  background-color: var(--PrimaryColor);
+  z-index: 2;
+  padding-left: 30px;
 }
-.navbar .navbar-top .main-logo img {
+.navbar-top .main-logo img {
   padding: 10px;
   width: 100px;
 }
-.navbar .navbar-top .search-section .search-bar {
+.navbar-top .search-section .search-bar {
   border-radius: 3rem;
   border: 2px solid var(--SecondaryColor);
   display: flex;
@@ -134,11 +140,11 @@ body {
   align-items: center;
   padding: 5px 20px;
 }
-.navbar .navbar-top .search-section .search-bar .search-icon {
+.navbar-top .search-section .search-bar .search-icon {
   font-size: 1.2rem;
   color: var(--SecondaryColor);
 }
-.navbar .navbar-top .search-section .search-bar .input-search-option {
+.navbar-top .search-section .search-bar .input-search-option {
   background-color: transparent;
   color: var(--SecondaryColor);
   border: none;
@@ -147,10 +153,10 @@ body {
   outline: none;
   padding-left: 10px;
 }
-.navbar .navbar-top .music-width {
+.navbar-top .music-width {
   overflow-x: scroll;
 }
-.navbar .navbar-top .music-width .music-category {
+.navbar-top .music-width .music-category {
   -webkit-overflow-scrolling: touch;
   display: flex;
   padding: 10px 0px;
@@ -158,36 +164,37 @@ body {
   align-items: center;
   gap: 10px;
 }
-.navbar .navbar-top .music-width .music-category p {
+.navbar-top .music-width .music-category p {
   font-size: 0.7rem;
   color: var(--SecondaryColor);
   cursor: pointer;
 }
-.navbar .navbar-top .music-width .music-category p:hover {
+.navbar-top .music-width .music-category p:hover {
   color: red;
 }
-.navbar .navbar-top .music-width::-webkit-scrollbar {
+.navbar-top .music-width::-webkit-scrollbar {
   height: 0.2rem;
 }
-.navbar .navbar-top .music-width::-webkit-scrollbar-thumb {
+.navbar-top .music-width::-webkit-scrollbar-thumb {
   background: var(--SecondaryColor);
 }
 
-.switch {
+.toggler {
+  /* Rounded sliders */
+}
+.toggler .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
   margin-left: 40px;
 }
-
-.switch input {
+.toggler .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
-.slider {
+.toggler .switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -197,8 +204,7 @@ body {
   background-color: #555; /* Dark gray background */
   transition: 0.4s;
 }
-
-.slider:before {
+.toggler .switch .slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -208,24 +214,27 @@ body {
   background-color: #fff; /* Light color for the circle */
   transition: 0.4s;
 }
-
-input:checked + .slider {
-  background-color: #ccc; /* Blue when toggled on */
+.toggler input:checked + .slider {
+  background-color: #ccc;
 }
-
-input:focus + .slider {
+.toggler input:focus + .slider {
   box-shadow: 0 0 1px #ccc;
 }
-
-input:checked + .slider:before {
+.toggler input:checked + .slider:before {
   transform: translateX(26px);
 }
-
-/* Rounded sliders */
-.slider.round {
+.toggler .slider.round {
   border-radius: 34px;
 }
-
-.slider.round:before {
+.toggler .slider.round:before {
   border-radius: 50%;
+}
+
+.home-carousel {
+  padding-top: 150px;
+  width: 90%;
+  margin: auto;
+}
+.home-carousel .sliding-img {
+  width: 300px;
 }/*# sourceMappingURL=main.css.map */

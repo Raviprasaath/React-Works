@@ -43,15 +43,18 @@ body {
   position: relative;
 }
 
+// side bar 
 .navbar-btn {
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 10px;
   color: var(--SecondaryColor);
   background-color: transparent;
   border: none;
   font-size: 1.2rem;
+  z-index: 3;
 }
+
 
 .overlay {
   display: none;
@@ -68,8 +71,8 @@ body {
 }
 
 
+// side nav bar
 .navbar {
-
 
   padding-right: 20px;
   .sideNav {
@@ -81,7 +84,7 @@ body {
     background: var(--PrimaryColor2);
     color: var(--SecondaryColor);
     transition: left 0.3s ease-in-out;
-    z-index: 5;
+    z-index: 3;
 
     &.open {
       left: 0;
@@ -131,137 +134,157 @@ body {
     }    
 
   }
-  .navbar-top {
-    padding-left: 40px;
 
-    .main-logo img{
-      padding: 10px;
-      width: 100px;
-    }
-    .search-section {     
-      .search-bar {
-        border-radius: 3rem;
-        border: 2px solid var(--SecondaryColor);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 20px;
-        
-        .search-icon {
-          font-size: 1.2rem;
-          color: var(--SecondaryColor);
-        }
-        
-        .input-search-option {
-          background-color: transparent;
-          color: var(--SecondaryColor);
-          border: none;
-          font-size: 0.8rem;
-          width: 100%;
-          outline: none;
-          padding-left: 10px;
-        }
-      }
-    }
-    .music-width {
-      overflow-x: scroll;
+}
+
+// nav bar top
+.navbar-top {
+  position: fixed;
+  width: 90%;
+  background-color: var(--PrimaryColor);
+  z-index: 2;
+  padding-left: 30px;
+  
+  .main-logo img{
+    padding: 10px;
+    width: 100px;
+  }
+  .search-section {     
+    .search-bar {
+      border-radius: 3rem;
+      border: 2px solid var(--SecondaryColor);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 20px;
       
-      .music-category {
-        -webkit-overflow-scrolling: touch;
-        display: flex;
-        padding: 10px 0px;
-        width: 580px;
-        align-items: center;
-        gap: 10px;
-        p {
-          font-size: 0.7rem;
-          color: var(--SecondaryColor);
-          cursor: pointer;
+      .search-icon {
+        font-size: 1.2rem;
+        color: var(--SecondaryColor);
+      }
+      
+      .input-search-option {
+        background-color: transparent;
+        color: var(--SecondaryColor);
+        border: none;
+        font-size: 0.8rem;
+        width: 100%;
+        outline: none;
+        padding-left: 10px;
+      }
+    }
+  }
+  .music-width {
+    overflow-x: scroll;
+    
+    .music-category {
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      padding: 10px 0px;
+      width: 580px;
+      align-items: center;
+      gap: 10px;
+      p {
+        font-size: 0.7rem;
+        color: var(--SecondaryColor);
+        cursor: pointer;
 
-          &:hover {
-            color: red;
-          }
+        &:hover {
+          color: red;
         }
       }
-      &::-webkit-scrollbar {
-        height: 0.2rem;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: var(--SecondaryColor);
+    }
+    &::-webkit-scrollbar {
+      height: 0.2rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--SecondaryColor);
+    }
+  }
+  
+
+}
+
+
+
+
+// Dark theme Toggler
+.toggler {
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 40px;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #555; /* Dark gray background */
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+
+      round {}
+      
+      &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: #fff; /* Light color for the circle */
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
       }
     }
     
+  }
+  
+  input:checked + .slider {
+    background-color: #ccc;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #ccc;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
 
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
   }
 }
 
+.home-carousel {
+  padding-top: 150px;
+  width: 90%;
+  margin: auto;
 
 
 
-
-
-
-
-
-// -----------------Dark theme Toggler
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  margin-left: 40px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #555; /* Dark gray background */
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: #fff; /* Light color for the circle */
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #ccc; /* Blue when toggled on */
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #ccc;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+    .sliding-img {
+      width: 300px;
+    }
 }

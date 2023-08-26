@@ -14,6 +14,7 @@ function ToggleSwitch() {
 
   return (
     <>
+    <div className="toggler">
       <label className="switch">
         <input
           type="checkbox"
@@ -26,6 +27,7 @@ function ToggleSwitch() {
       <div className="content" style={bodyStyle}>
         <h1>{isDarkMode ? "Dark Mode" : "Light Mode"}</h1>
       </div>
+    </div>
     </>
   );
 }

@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import Navbar from "./Components/Navbar.jsx";
+import Navbar from "./Components/NavbarSide/Navbar.jsx";
+import HomeCarousel from "./Components/HomeCarousel/HomeCarousel.jsx";
+
+
+
 import Test from "./Components/Test.jsx";
 import { FaBars } from "react-icons/fa";
+import NavbarTop from "./Components/NavbarSide/NavbarTop.jsx";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +43,9 @@ function App() {
         <Navbar isOpen={isOpen} closeSidePanel={closeSidePanel} />
         {isOpen && <div className="overlay" onClick={closeSidePanel}></div>}
       </div>
-      <Test />
+      <NavbarTop />
+      <HomeCarousel/>
+
     </>
   );
 }
