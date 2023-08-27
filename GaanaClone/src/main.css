@@ -63,6 +63,10 @@ body {
   display: block;
 }
 
+.react-multiple-carousel__arrow {
+  z-index: 1;
+}
+
 .navbar {
   padding-right: 20px;
 }
@@ -122,7 +126,7 @@ body {
 
 .navbar-top {
   position: fixed;
-  width: 90%;
+  width: 100%;
   background-color: var(--PrimaryColor);
   z-index: 2;
   padding-left: 30px;
@@ -139,6 +143,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
+  width: 95%;
 }
 .navbar-top .search-section .search-bar .search-icon {
   font-size: 1.2rem;
@@ -177,6 +182,145 @@ body {
 }
 .navbar-top .music-width::-webkit-scrollbar-thumb {
   background: var(--SecondaryColor);
+}
+
+.largerCarousel {
+  padding-left: 20px;
+  padding-top: 150px;
+}
+.largerCarousel .large-slider-img {
+  width: 240px;
+}
+
+.Testing.card {
+  margin-top: 120px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 320px;
+  margin: auto 1rem;
+  text-align: center;
+  font-family: arial;
+}
+.Testing.card .product--image {
+  width: 100%;
+  height: 16em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.music-control-comp {
+  background-color: var(--PrimaryColor2);
+  padding: 5px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  bottom: 0;
+}
+.music-control-comp .mob-screen-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.music-control-comp .mob-screen-controls .song-name {
+  display: flex;
+  align-items: center;
+}
+.music-control-comp .mob-screen-controls .song-name .current-playing-song {
+  width: 30px;
+}
+.music-control-comp .mob-screen-controls .song-name .song-name-lines {
+  padding: 0px 20px;
+}
+.music-control-comp .mob-screen-controls .song-name .song-name-lines .song-name-1 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.music-control-comp .mob-screen-controls .song-name .song-name-lines .song-name-2 {
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+.music-control-comp .mob-screen-controls .song-controls-play {
+  display: flex;
+}
+.music-control-comp .mob-screen-controls .song-controls-play .icons-control {
+  padding: 0px 10px;
+}
+.music-control-comp .mob-screen-controls .song-controls-play .icons-control .playing-icon {
+  color: red;
+  font-size: 2rem;
+}
+.music-control-comp .mob-screen-controls .song-controls-play .icons-control .next-songs-icon {
+  font-size: 2rem;
+}
+.music-control-comp .large-screen-controls {
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.music-control-comp .large-screen-controls .song-playing-area1 .song-cover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.music-control-comp .large-screen-controls .song-playing-area1 .song-cover .current-playing-song {
+  width: 50px;
+}
+.music-control-comp .large-screen-controls .song-playing-area1 .song-cover .song-name {
+  padding: 0px 10px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.music-control-comp .large-screen-controls .song-playing-area1 .song-cover .song-details {
+  padding: 0px 10px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+.music-control-comp .large-screen-controls .song-playing-area1 .song-cover .heart-empty {
+  font-size: 1.3rem;
+  margin-left: 15px;
+}
+.music-control-comp .large-screen-controls .song-playing-area1 .song-cover .heart-filled {
+  margin-left: 15px;
+  font-size: 1.3rem;
+  color: red;
+}
+.music-control-comp .large-screen-controls .song-playing-area1 .song-cover .options {
+  margin-left: 15px;
+  font-size: 1rem;
+}
+.music-control-comp .large-screen-controls .song-playing-area2 {
+  padding-left: 4.5rem;
+  width: 35dvw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.music-control-comp .large-screen-controls .song-playing-area2 .song-duration-track {
+  border: 1px solid var(--SecondaryColor);
+  padding: 5px 15px;
+  color: var(--SecondaryColor);
+  border-radius: 25px;
+  font-size: 0.8rem;
+}
+.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon1 {
+  font-size: 1.5rem;
+}
+.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon3 {
+  font-size: 1.5rem;
+  color: red;
+}
+.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon4, .music-control-comp .large-screen-controls .song-playing-area2 .controls-icon2 {
+  font-size: 2.2rem;
+}
+.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon5 {
+  font-size: 1rem;
+}
+.music-control-comp .large-screen-controls .song-playing-area3 {
+  padding-left: 4rem;
+}
+.music-control-comp .large-screen-controls .song-playing-area3 .volume-btn {
+  font-size: 1.5rem;
 }
 
 .toggler {
@@ -230,67 +374,57 @@ body {
   border-radius: 50%;
 }
 
-.home-carousel {
-  padding-top: 150px;
-  width: 90%;
-  padding-left: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.home-carousel .sliding-img {
-  width: 250px;
-}
-
 @media screen and (min-width: 360px) {
-  .home-carousel {
-    padding-left: 30px;
+  .largerCarousel {
+    padding-left: 20px;
+    padding-top: 150px;
   }
-  .home-carousel .sliding-img {
-    width: 320px;
+  .largerCarousel .large-slider-img {
+    width: 350px;
   }
 }
 @media screen and (min-width: 480px) {
-  .home-carousel {
-    padding-left: 35px;
+  .largerCarousel {
+    padding-left: 20px;
+    padding-top: 150px;
   }
-  .home-carousel .sliding-img {
-    width: 220px;
+  .largerCarousel .large-slider-img {
+    width: 240px;
   }
 }
-@media screen and (min-width: 580px) {
-  .home-carousel {
-    padding-left: 15px;
-    margin: auto;
+@media screen and (min-width: 600px) {
+  .largerCarousel {
+    padding-left: 20px;
+    padding-top: 150px;
   }
-  .home-carousel .sliding-img {
-    width: 260px;
+  .largerCarousel .large-slider-img {
+    width: 320px;
   }
 }
 @media screen and (min-width: 768px) {
-  .home-carousel {
-    padding-left: 15px;
-    margin: auto;
+  .largerCarousel {
+    padding-left: 20px;
+    padding-top: 150px;
   }
-  .home-carousel .sliding-img {
-    width: 300px;
+  .largerCarousel .large-slider-img {
+    width: 380px;
   }
 }
 @media screen and (min-width: 960px) {
-  .home-carousel {
-    padding-left: 15px;
-    margin: auto;
+  .largerCarousel {
+    padding-left: 20px;
+    padding-top: 150px;
   }
-  .home-carousel .sliding-img {
-    width: 300px;
+  .largerCarousel .large-slider-img {
+    width: 420px;
   }
 }
-@media screen and (min-width: 1106px) {
-  .home-carousel {
-    padding-left: 15px;
-    margin: auto;
+@media screen and (min-width: 1024px) {
+  .largerCarousel {
+    padding-left: 10px;
+    padding-top: 150px;
   }
-  .home-carousel .sliding-img {
-    width: 600px;
+  .largerCarousel .large-slider-img {
+    width: 490px;
   }
 }/*# sourceMappingURL=main.css.map */
