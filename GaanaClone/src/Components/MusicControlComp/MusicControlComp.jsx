@@ -70,27 +70,31 @@ function MusicControlComp() {
             </div>
             <div className="song-playing-area2">
               <div className="song-duration-track">00:01 / 00:18</div>
-              <div>
+              <div className="song-changing-btns">
                 <IoMdRepeat className="controls-icon1" />
               </div>
-              <div>
+              <div className="song-changing-btns">
                 <BiSkipPrevious className="controls-icon2" />
               </div>
-              <div>
+              <div className="song-changing-btns">
                 <BsFillPlayCircleFill className="controls-icon3" />
               </div>
-              <div>
+              <div className="song-changing-btns">
                 <BiSkipNext className="controls-icon4" />
               </div>
-              <div>
+              <div className="song-changing-btns">
                 <IoMdShuffle className="controls-icon5" />
               </div>
             </div>
-
+            <div></div>
             <div className="song-playing-area3">
-                <div>
-                    <BsFillVolumeUpFill className="volume-btn" />
-                </div>
+              <div className="volume-button">
+                <BsFillVolumeUpFill className="volume-btn" />
+              </div>
+              <div className="audio-type">Audio High</div>
+              <div>
+                <IoIosArrowUp className="song-details" />
+              </div>
             </div>
           </div>
         )}

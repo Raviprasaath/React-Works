@@ -34,6 +34,15 @@ body {
   color: var(--SecondaryColor4);
 }
 
+*::-webkit-scrollbar {
+  height: 0.2rem;
+  width: 0.2rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--SecondaryColor);
+}
+
 .wrapper {
   position: relative;
 }
@@ -158,10 +167,14 @@ body {
   outline: none;
   padding-left: 10px;
 }
-.navbar-top .music-width {
+
+.navbarSongTypeChoose {
+  width: 100%;
+  padding-top: 150px;
   overflow-x: scroll;
+  position: relative;
 }
-.navbar-top .music-width .music-category {
+.navbarSongTypeChoose .music-category {
   -webkit-overflow-scrolling: touch;
   display: flex;
   padding: 10px 0px;
@@ -169,18 +182,82 @@ body {
   align-items: center;
   gap: 10px;
 }
-.navbar-top .music-width .music-category p {
+.navbarSongTypeChoose .music-category .dropdown {
+  display: inline-block;
+}
+.navbarSongTypeChoose .music-category .dropdown .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.navbarSongTypeChoose .music-category .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 6;
+}
+.navbarSongTypeChoose .music-category .dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.navbarSongTypeChoose .music-category .dropdown .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.navbarSongTypeChoose .music-category .dropdown:hover .dropdown-content {
+  display: block;
+}
+.navbarSongTypeChoose .music-category .dropbtn {
+  color: var(--SecondaryColor);
+  border: none;
+  cursor: pointer;
+}
+.navbarSongTypeChoose .music-category .dropdown {
+  display: inline-block;
+}
+.navbarSongTypeChoose .music-category .dropdown:hover .dropdown-content {
+  display: block;
+}
+.navbarSongTypeChoose .music-category .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  height: 400px;
+  overflow: auto;
+  left: 44%;
+}
+.navbarSongTypeChoose .music-category .dropdown-content a {
+  color: var(--SecondaryColor);
+  padding: 5px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: inherit;
+}
+.navbarSongTypeChoose .music-category .dropdown-content a:hover {
+  background-color: var(--SecondaryColor);
+  color: var(--PrimaryColor);
+}
+.navbarSongTypeChoose .music-category p {
   font-size: 0.7rem;
   color: var(--SecondaryColor);
   cursor: pointer;
 }
-.navbar-top .music-width .music-category p:hover {
+.navbarSongTypeChoose .music-category p:hover {
   color: red;
 }
-.navbar-top .music-width::-webkit-scrollbar {
+.navbarSongTypeChoose::-webkit-scrollbar {
   height: 0.2rem;
 }
-.navbar-top .music-width::-webkit-scrollbar-thumb {
+.navbarSongTypeChoose::-webkit-scrollbar-thumb {
   background: var(--SecondaryColor);
 }
 
@@ -232,31 +309,31 @@ body {
   padding: 0px 20px;
 }
 .music-control-comp .mob-screen-controls .song-name .song-name-lines .song-name-1 {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 .music-control-comp .mob-screen-controls .song-name .song-name-lines .song-name-2 {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   opacity: 0.5;
 }
 .music-control-comp .mob-screen-controls .song-controls-play {
   display: flex;
-}
-.music-control-comp .mob-screen-controls .song-controls-play .icons-control {
-  padding: 0px 10px;
+  width: 80px;
+  justify-content: space-around;
 }
 .music-control-comp .mob-screen-controls .song-controls-play .icons-control .playing-icon {
   color: red;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .music-control-comp .mob-screen-controls .song-controls-play .icons-control .next-songs-icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .music-control-comp .large-screen-controls {
   padding: 5px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 .music-control-comp .large-screen-controls .song-playing-area1 .song-cover {
   display: flex;
@@ -264,7 +341,7 @@ body {
   align-items: center;
 }
 .music-control-comp .large-screen-controls .song-playing-area1 .song-cover .current-playing-song {
-  width: 50px;
+  width: 30px;
 }
 .music-control-comp .large-screen-controls .song-playing-area1 .song-cover .song-name {
   padding: 0px 10px;
@@ -290,8 +367,7 @@ body {
   font-size: 1rem;
 }
 .music-control-comp .large-screen-controls .song-playing-area2 {
-  padding-left: 4.5rem;
-  width: 35dvw;
+  width: 350px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -303,24 +379,45 @@ body {
   border-radius: 25px;
   font-size: 0.8rem;
 }
-.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon1 {
+.music-control-comp .large-screen-controls .song-playing-area2 .song-changing-btns {
+  display: flex;
+}
+.music-control-comp .large-screen-controls .song-playing-area2 .song-changing-btns .controls-icon1 {
   font-size: 1.5rem;
 }
-.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon3 {
+.music-control-comp .large-screen-controls .song-playing-area2 .song-changing-btns .controls-icon3 {
   font-size: 1.5rem;
   color: red;
 }
-.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon4, .music-control-comp .large-screen-controls .song-playing-area2 .controls-icon2 {
+.music-control-comp .large-screen-controls .song-playing-area2 .song-changing-btns .controls-icon4, .music-control-comp .large-screen-controls .song-playing-area2 .song-changing-btns .controls-icon2 {
   font-size: 2.2rem;
 }
-.music-control-comp .large-screen-controls .song-playing-area2 .controls-icon5 {
+.music-control-comp .large-screen-controls .song-playing-area2 .song-changing-btns .controls-icon5 {
   font-size: 1rem;
 }
 .music-control-comp .large-screen-controls .song-playing-area3 {
-  padding-left: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180px;
 }
-.music-control-comp .large-screen-controls .song-playing-area3 .volume-btn {
-  font-size: 1.5rem;
+.music-control-comp .large-screen-controls .song-playing-area3 .volume-button {
+  display: flex;
+}
+.music-control-comp .large-screen-controls .song-playing-area3 .volume-button .volume-btn {
+  font-size: 2rem;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 5px;
+}
+.music-control-comp .large-screen-controls .song-playing-area3 .audio-type {
+  border: 1px solid red;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+.music-control-comp .large-screen-controls .song-playing-area3 .song-details {
+  font-size: 1.2rem;
 }
 
 .toggler {
@@ -393,6 +490,43 @@ body {
   }
 }
 @media screen and (min-width: 600px) {
+  .navbar {
+    padding-right: 20px;
+  }
+  .navbar .sideNav {
+    top: 0;
+    left: -80%;
+    width: 80%;
+  }
+  .navbar .sideNav.open {
+    left: 0;
+  }
+  .navbar .sideNav .logo-login {
+    padding-top: 10px;
+  }
+  .navbar .sideNav .logo-login .logo {
+    font-size: 2rem;
+  }
+  .navbar .sideNav .logo-login .login {
+    font-size: 0.9rem;
+  }
+  .navbar .sideNav ul {
+    padding-top: 2rem;
+    padding-left: 2rem;
+  }
+  .navbar .sideNav ul li {
+    padding: 0.5rem;
+  }
+  .navbar .sideNav ul li a {
+    font-size: 0.9rem;
+  }
+  .navbar .sideNav ul li .premium {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .navbar-top .search-section .search-bar .input-search-option {
+    font-size: 1rem;
+  }
   .largerCarousel {
     padding-left: 20px;
     padding-top: 150px;
@@ -402,6 +536,43 @@ body {
   }
 }
 @media screen and (min-width: 768px) {
+  .navbar {
+    padding-right: 20px;
+  }
+  .navbar .sideNav {
+    top: 0;
+    left: -80%;
+    width: 80%;
+  }
+  .navbar .sideNav.open {
+    left: 0;
+  }
+  .navbar .sideNav .logo-login {
+    padding-top: 10px;
+  }
+  .navbar .sideNav .logo-login .logo {
+    font-size: 2rem;
+  }
+  .navbar .sideNav .logo-login .login {
+    font-size: 0.9rem;
+  }
+  .navbar .sideNav ul {
+    padding-top: 2rem;
+    padding-left: 2rem;
+  }
+  .navbar .sideNav ul li {
+    padding: 0.5rem;
+  }
+  .navbar .sideNav ul li a {
+    font-size: 0.9rem;
+  }
+  .navbar .sideNav ul li .premium {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .navbar-top .search-section .search-bar .input-search-option {
+    font-size: 0.92rem;
+  }
   .largerCarousel {
     padding-left: 20px;
     padding-top: 150px;

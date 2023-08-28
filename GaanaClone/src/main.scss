@@ -39,6 +39,15 @@ body {
   color: var(--SecondaryColor4);
 }
 
+
+*::-webkit-scrollbar {
+  height: 0.2rem;
+  width: 0.2rem;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--SecondaryColor);
+}
+
 .wrapper {
   position: relative;
 }
@@ -179,35 +188,131 @@ body {
       }
     }
   }
-  .music-width {
-    overflow-x: scroll;
-    
-    .music-category {
-      -webkit-overflow-scrolling: touch;
-      display: flex;
-      padding: 10px 0px;
-      width: 580px;
-      align-items: center;
-      gap: 10px;
-      p {
-        font-size: 0.7rem;
-        color: var(--SecondaryColor);
-        cursor: pointer;
 
-        &:hover {
-          color: red;
+  
+
+}
+
+
+// nav type
+.navbarSongTypeChoose {
+  width: 100%;
+  padding-top: 150px;
+  overflow-x: scroll;
+  position: relative;
+  
+  .music-category {
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    padding: 10px 0px;
+    width: 580px;
+    align-items: center;
+    gap: 10px;
+
+    .dropdown {
+      // position: relative;
+      display: inline-block;
+      
+      .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 6;
+
+
+        a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          
+          &:hover {
+            background-color: #f1f1f1
+          }
+        }
+        
+      }
+      &:hover {
+        .dropdown-content {
+          display: block;
         }
       }
     }
-    &::-webkit-scrollbar {
-      height: 0.2rem;
+    $primary-color: #4CAF50;
+    $hover-color: #3e8e41;
+    $background-color: #f9f9f9;
+
+    .dropbtn {
+      color: var(--SecondaryColor);
+      border: none;
+      cursor: pointer;
     }
-    &::-webkit-scrollbar-thumb {
-      background: var(--SecondaryColor);
+
+    .dropdown {
+      // position: relative;
+      display: inline-block;
+      
+
+      &:hover {
+        .dropdown-content {
+          display: block;
+        }
+      }
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: transparent;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      height: 400px;
+      overflow: auto;
+      left: 44%;
+
+      a {
+        color: var(--SecondaryColor);
+        padding: 5px 10px;
+        text-decoration: none;
+        display: block;
+        font-size: inherit;
+
+        &:hover {
+          background-color: var(--SecondaryColor);
+          color: var(--PrimaryColor);
+        }
+      }
+    }
+
+
+
+    p {
+      font-size: 0.7rem;
+      color: var(--SecondaryColor);
+      cursor: pointer;
+
+      &:hover {
+        color: red;
+      }
     }
   }
-  
-
+  &::-webkit-scrollbar {
+    height: 0.2rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--SecondaryColor);
+  }
 }
 
 
@@ -269,26 +374,27 @@ body {
           padding: 0px 20px;
 
           .song-name-1 {
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             font-weight: 600;
           }
           .song-name-2 {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             opacity: 0.5;
           }
         }    
       }
       .song-controls-play {
         display: flex;
+        width: 80px;
+        justify-content: space-around;
 
         .icons-control {
-          padding: 0px 10px;
           .playing-icon {
             color: red;
-            font-size: 2rem;
+            font-size: 1.5rem;
           }
           .next-songs-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
           }
 
         }
@@ -303,13 +409,13 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    justify-content: space-between;    
 
     .song-playing-area1 {
       .song-cover {
         
         .current-playing-song {        
-          width: 50px;
+          width: 30px;
         }
 
         display: flex;
@@ -344,8 +450,8 @@ body {
       }
     }
     .song-playing-area2 {
-      padding-left: 4.5rem;
-      width: 35dvw;
+      
+      width: 350px;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
@@ -357,26 +463,50 @@ body {
         border-radius: 25px;
         font-size: 0.8rem;
       }
-      .controls-icon1 {
-        font-size: 1.5rem;
-      }
-      .controls-icon3 {
-        font-size: 1.5rem;
-        color: red;
-      }
-      .controls-icon4, .controls-icon2 {
-        font-size: 2.2rem;
-      }
-      .controls-icon5 {
-        font-size: 1rem;
+      .song-changing-btns {
+        display: flex;
+        
+        .controls-icon1 {
+          font-size: 1.5rem;
+        }
+        .controls-icon3 {
+          font-size: 1.5rem;
+          color: red;
+        }
+        .controls-icon4, .controls-icon2 {
+          font-size: 2.2rem;
+        }
+        .controls-icon5 {
+          font-size: 1rem;
+        }
       }
 
 
     }
-    .song-playing-area3 {
-      padding-left: 4rem;
-      .volume-btn {
-        font-size: 1.5rem;
+    .song-playing-area3 {      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 180px;
+
+      .volume-button {
+        display: flex;
+        .volume-btn {
+          font-size: 2rem;
+          border: 1px solid white;
+          border-radius: 50%;
+          padding: 5px;
+        }
+      }
+
+      .audio-type {
+        border: 1px solid red;
+        padding: 2px 10px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+      }
+      .song-details {
+        font-size: 1.2rem;
       }
     }
 
@@ -465,6 +595,9 @@ body {
 
 
 @media screen and (min-width: 360px) {
+
+
+
   .largerCarousel {
     padding-left: 20px;
     padding-top: 150px;
@@ -485,6 +618,63 @@ body {
 }
 
 @media screen and (min-width: 600px) {
+  .navbar {
+
+    padding-right: 20px;
+    .sideNav {
+      top: 0;
+      left: -80%;
+      width: 80%;
+  
+      &.open {
+        left: 0;
+      }
+      .logo-login {
+        padding-top: 10px;
+        .logo {
+          font-size: 2rem;
+        }
+        .login {
+          font-size: 0.9rem;
+        }    
+      }
+  
+      ul {
+        padding-top: 2rem;
+        padding-left: 2rem;
+        
+        li {
+          padding: 0.5rem;
+          
+          a {
+            font-size: 0.9rem;
+          }
+  
+          .premium {
+            font-size: 1.4rem;
+            font-weight: 600;
+          }        
+        }
+      }    
+  
+    }
+  
+  }
+
+  .navbar-top {
+    .search-section {     
+      .search-bar {              
+        
+        .input-search-option {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    
+  
+  }
+
   .largerCarousel {
     padding-left: 20px;
     padding-top: 150px;
@@ -499,6 +689,58 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  
+  .navbar {
+    padding-right: 20px;
+    .sideNav {
+      top: 0;
+      left: -80%;
+      width: 80%;
+  
+      &.open {
+        left: 0;
+      }
+      .logo-login {
+        padding-top: 10px;
+        .logo {
+          font-size: 2rem;
+        }
+        .login {
+          font-size: 0.9rem;
+        }    
+      }
+  
+      ul {
+        padding-top: 2rem;
+        padding-left: 2rem;
+        
+        li {
+          padding: 0.5rem;
+          
+          a {
+            font-size: 0.9rem;
+          }
+  
+          .premium {
+            font-size: 1.4rem;
+            font-weight: 600;
+          }        
+        }
+      }      
+    }  
+  }
+
+  .navbar-top {
+    .search-section {     
+      .search-bar {        
+        .input-search-option {
+          font-size: 0.92rem;
+        }
+      }
+    }
+ 
+  }
+
   .largerCarousel {
     padding-left: 20px;
     padding-top: 150px;
@@ -507,6 +749,7 @@ body {
     }
   }
 }
+
 @media screen and (min-width: 960px) {
   .largerCarousel {
     padding-left: 20px;
@@ -517,6 +760,7 @@ body {
   }
 
 }
+
 @media screen and (min-width: 1024px) {
   .largerCarousel {
     padding-left: 10px;
@@ -526,9 +770,11 @@ body {
     }
   }
 }
+
 @media screen and (min-width: 1106px) {
 
 }
+
 @media screen and (min-width: 1332px) {
 
 }
