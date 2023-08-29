@@ -6,7 +6,7 @@ import NavbarTop from "./Components/NavbarSide/NavbarTop.jsx";
 import NavbarSongTypeChoose from "./Components/NavbarSide/NavbarSongTypeChoose.jsx";
 import LargerCarousel from "./Components/HomeCarousel/LargerCarousel.jsx";
 import MusicControlComp from "./Components/MusicControlComp/MusicControlComp.jsx";
-
+import Test from "./Components/Test.jsx"
 
 
 import Carousel from "react-multi-carousel";
@@ -65,9 +65,10 @@ function App() {
       </div>
 
       <NavbarTop />
-      <NavbarSongTypeChoose />
+      {/* <NavbarSongTypeChoose /> */}
       
-      {/* <LargerCarousel />
+      <Test />
+      <LargerCarousel />
 
       <h2>Upcoming</h2>
       <Carousel showDots={false} responsive={responsive}>
@@ -79,7 +80,11 @@ function App() {
         {product}
       </Carousel>
 
-      <MusicControlComp /> */}
+      <MusicControlComp />
+
+
+
+      
 
       
     </>

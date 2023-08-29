@@ -152,7 +152,7 @@ body {
 // nav bar top
 .navbar-top {
   position: fixed;
-  width: 100%;
+  width: 90%;
   background-color: var(--PrimaryColor);
   z-index: 2;
   padding-left: 30px;
@@ -196,19 +196,7 @@ body {
 
 // nav type
 .navbarSongTypeChoose {
-  width: 100%;
-  padding-top: 150px;
-  overflow-x: scroll;
-  position: relative;
-  
   .music-category {
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    padding: 10px 0px;
-    width: 580px;
-    align-items: center;
-    gap: 10px;
-
     .dropdown {
       // position: relative;
       display: inline-block;
@@ -315,11 +303,99 @@ body {
   }
 }
 
+.testing {
+  padding-top: 120px;
+  width: 600px;
+  overflow: auto;
+
+  .subheadings {
+    // height: 400px;
+    overflow: auto;
+  }
+}
+
+
+// editing again
+// Navbar Song Type Choose
+// .navbarSongTypeChoose {
+//   width: 500px;
+//   padding-top: 10px;
+//   overflow-x: auto;
+//   position: relative;
+
+//   .music-category {
+//     -webkit-overflow-scrolling: touch;
+//     display: flex;
+//     padding: 10px 0px;
+//     width: 580px;
+//     align-items: center;
+//     gap: 10px;
+
+//     .songs-types {
+//       font-size: 0.7rem;
+//     }
+
+//     .dropdown {
+//       font-size: 0.7rem;
+
+//       .dropbtn {
+//         position: relative;
+//       }
+
+//       &:hover {
+//         .dropdown-a {
+//           // position: absolute;
+//           // z-index: 5;
+//           // height: 150px;
+//           // // display: block;
+//           // color: white;
+//         }
+//       }
+//     }
+
+//     .dropdown-content {
+//       position: absolute;
+//       height: 150px;
+//       z-index: 2;
+
+//       .dropdown-a {
+//         // display: none;
+//         display: block;
+//         font-size: 0.7rem;
+//         color: white;
+        
+//       }
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // home page large slider
 .largerCarousel {
   padding-left: 20px;
-  padding-top: 150px;
+  padding-top: 10px;
   .large-slider-img {
     width: 240px;
   }
@@ -600,7 +676,7 @@ body {
 
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
     .large-slider-img {
       width: 350px;
     }
@@ -610,7 +686,7 @@ body {
 @media screen and (min-width: 480px) {
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
     .large-slider-img {
       width: 240px;
     }
@@ -677,7 +753,7 @@ body {
 
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
     .large-slider-img {
       width: 320px;
     }
@@ -743,7 +819,7 @@ body {
 
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
     .large-slider-img {
       width: 380px;
     }
@@ -753,7 +829,7 @@ body {
 @media screen and (min-width: 960px) {
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
     .large-slider-img {
       width: 420px;
     }
@@ -764,7 +840,7 @@ body {
 @media screen and (min-width: 1024px) {
   .largerCarousel {
     padding-left: 10px;
-    padding-top: 150px;
+    padding-top: 10px;
     .large-slider-img {
       width: 490px;
     }

@@ -135,7 +135,7 @@ body {
 
 .navbar-top {
   position: fixed;
-  width: 100%;
+  width: 90%;
   background-color: var(--PrimaryColor);
   z-index: 2;
   padding-left: 30px;
@@ -168,20 +168,6 @@ body {
   padding-left: 10px;
 }
 
-.navbarSongTypeChoose {
-  width: 100%;
-  padding-top: 150px;
-  overflow-x: scroll;
-  position: relative;
-}
-.navbarSongTypeChoose .music-category {
-  -webkit-overflow-scrolling: touch;
-  display: flex;
-  padding: 10px 0px;
-  width: 580px;
-  align-items: center;
-  gap: 10px;
-}
 .navbarSongTypeChoose .music-category .dropdown {
   display: inline-block;
 }
@@ -261,9 +247,18 @@ body {
   background: var(--SecondaryColor);
 }
 
+.testing {
+  padding-top: 120px;
+  width: 600px;
+  overflow: auto;
+}
+.testing .subheadings {
+  overflow: auto;
+}
+
 .largerCarousel {
   padding-left: 20px;
-  padding-top: 150px;
+  padding-top: 10px;
 }
 .largerCarousel .large-slider-img {
   width: 240px;
@@ -474,7 +469,7 @@ body {
 @media screen and (min-width: 360px) {
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
   }
   .largerCarousel .large-slider-img {
     width: 350px;
@@ -483,7 +478,7 @@ body {
 @media screen and (min-width: 480px) {
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
   }
   .largerCarousel .large-slider-img {
     width: 240px;
@@ -529,7 +524,7 @@ body {
   }
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
   }
   .largerCarousel .large-slider-img {
     width: 320px;
@@ -575,7 +570,7 @@ body {
   }
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
   }
   .largerCarousel .large-slider-img {
     width: 380px;
@@ -584,7 +579,7 @@ body {
 @media screen and (min-width: 960px) {
   .largerCarousel {
     padding-left: 20px;
-    padding-top: 150px;
+    padding-top: 10px;
   }
   .largerCarousel .large-slider-img {
     width: 420px;
@@ -593,7 +588,7 @@ body {
 @media screen and (min-width: 1024px) {
   .largerCarousel {
     padding-left: 10px;
-    padding-top: 150px;
+    padding-top: 10px;
   }
   .largerCarousel .large-slider-img {
     width: 490px;
