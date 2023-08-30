@@ -6,7 +6,7 @@ import NavbarTop from "./Components/NavbarSide/NavbarTop.jsx";
 import NavbarSongTypeChoose from "./Components/NavbarSide/NavbarSongTypeChoose.jsx";
 import LargerCarousel from "./Components/HomeCarousel/LargerCarousel.jsx";
 import MusicControlComp from "./Components/MusicControlComp/MusicControlComp.jsx";
-import Test from "./Components/Test.jsx"
+import SongsCollection from "./Components/HomeCarousel/SongsCollection.jsx"
 
 
 import Carousel from "react-multi-carousel";
@@ -53,6 +53,11 @@ function App() {
     />
   ));
 
+  function toggling() {
+    console.log("ravi");
+  }
+   
+
 
   return (
     <>
@@ -60,14 +65,14 @@ function App() {
         <button className="navbar-btn" onClick={toggleSidePanel}>
           <FaBars />
         </button>
-        <Navbar isOpen={isOpen} closeSidePanel={closeSidePanel} />
+        <Navbar toggleCallback={toggling} isOpen={isOpen} closeSidePanel={closeSidePanel} />
         {isOpen && <div className="overlay" onClick={closeSidePanel}></div>}
       </div>
 
       <NavbarTop />
       {/* <NavbarSongTypeChoose /> */}
       
-      <Test />
+      <SongsCollection />
       <LargerCarousel />
 
       <h2>Upcoming</h2>

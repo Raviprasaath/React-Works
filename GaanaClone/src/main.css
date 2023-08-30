@@ -9,9 +9,7 @@
 
 :root {
   --PrimaryColor: #232429;
-  --PrimaryColor2: #333;
   --SecondaryColor: #c3c2c5;
-  --SecondaryColor2: #f5f4f4;
   --SecondaryColor3: red;
   --SecondaryColor4: #fff;
   --colorOne: hsl(15, 74%, 70%);
@@ -85,7 +83,7 @@ body {
   left: -80%;
   width: 80%;
   height: 100%;
-  background: var(--PrimaryColor2);
+  background: var(--PrimaryColor);
   color: var(--SecondaryColor);
   transition: left 0.3s ease-in-out;
   z-index: 3;
@@ -135,7 +133,7 @@ body {
 
 .navbar-top {
   position: fixed;
-  width: 90%;
+  width: 100%;
   background-color: var(--PrimaryColor);
   z-index: 2;
   padding-left: 30px;
@@ -168,92 +166,39 @@ body {
   padding-left: 10px;
 }
 
-.navbarSongTypeChoose .music-category .dropdown {
-  display: inline-block;
-}
-.navbarSongTypeChoose .music-category .dropdown .dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-.navbarSongTypeChoose .music-category .dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 6;
-}
-.navbarSongTypeChoose .music-category .dropdown .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-.navbarSongTypeChoose .music-category .dropdown .dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-.navbarSongTypeChoose .music-category .dropdown:hover .dropdown-content {
-  display: block;
-}
-.navbarSongTypeChoose .music-category .dropbtn {
-  color: var(--SecondaryColor);
-  border: none;
-  cursor: pointer;
-}
-.navbarSongTypeChoose .music-category .dropdown {
-  display: inline-block;
-}
-.navbarSongTypeChoose .music-category .dropdown:hover .dropdown-content {
-  display: block;
-}
-.navbarSongTypeChoose .music-category .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: transparent;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  height: 400px;
+.songsCollection {
+  padding-top: 120px;
+  max-width: 1200px;
   overflow: auto;
-  left: 44%;
-}
-.navbarSongTypeChoose .music-category .dropdown-content a {
   color: var(--SecondaryColor);
-  padding: 5px 10px;
-  text-decoration: none;
-  display: block;
-  font-size: inherit;
-}
-.navbarSongTypeChoose .music-category .dropdown-content a:hover {
-  background-color: var(--SecondaryColor);
-  color: var(--PrimaryColor);
-}
-.navbarSongTypeChoose .music-category p {
-  font-size: 0.7rem;
-  color: var(--SecondaryColor);
+  background-color: var(--PrimaryColor);
   cursor: pointer;
 }
-.navbarSongTypeChoose .music-category p:hover {
-  color: red;
+.songsCollection .MuiBox-root .css-1563k86-MuiTypography-root {
+  min-width: 100px;
+  font-size: 0.8rem;
 }
-.navbarSongTypeChoose::-webkit-scrollbar {
-  height: 0.2rem;
+.songsCollection .MuiButtonBase-root {
+  background-color: var(--PrimaryColor);
+  color: var(--SecondaryColor);
+  margin-left: 0;
 }
-.navbarSongTypeChoose::-webkit-scrollbar-thumb {
-  background: var(--SecondaryColor);
+.songsCollection .MuiButtonBase-root .MuiTypography-root {
+  text-transform: none;
+  font-weight: unset;
+  font-size: 0.8rem;
 }
 
-.testing {
-  padding-top: 120px;
-  width: 600px;
-  overflow: auto;
+.css-ahj2mt-MuiTypography-root {
+  font-size: 0.8rem !important;
 }
-.testing .subheadings {
-  overflow: auto;
+
+.MuiModal-root .MuiPaper-root {
+  background-color: var(--PrimaryColor);
+  color: var(--SecondaryColor);
+}
+.MuiModal-root .MuiPaper-root::before {
+  content: none;
 }
 
 .largerCarousel {
@@ -280,7 +225,7 @@ body {
 }
 
 .music-control-comp {
-  background-color: var(--PrimaryColor2);
+  background-color: var(--PrimaryColor);
   padding: 5px 20px;
   position: fixed;
   width: 100%;
@@ -528,6 +473,23 @@ body {
   }
   .largerCarousel .large-slider-img {
     width: 320px;
+  }
+  .songsCollection .MuiBox-root .css-1563k86-MuiTypography-root {
+    min-width: 130px;
+    font-size: 0.9rem;
+  }
+  .songsCollection .MuiButtonBase-root .MuiTypography-root {
+    font-size: 0.9rem;
+  }
+  .css-ahj2mt-MuiTypography-root {
+    font-size: 0.9rem !important;
+  }
+  .MuiModal-root .MuiPaper-root {
+    background-color: var(--PrimaryColor);
+    color: var(--SecondaryColor);
+  }
+  .MuiModal-root .MuiPaper-root::before {
+    content: none;
   }
 }
 @media screen and (min-width: 768px) {

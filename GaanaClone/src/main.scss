@@ -11,9 +11,11 @@
 
 :root {
     --PrimaryColor: #232429;
-    --PrimaryColor2: #333;
+    // --PrimaryColor: #c3c2c5;
+    
+    // --SecondaryColor: #232429;
     --SecondaryColor: #c3c2c5;
-    --SecondaryColor2: #f5f4f4;
+
     --SecondaryColor3: red;
     --SecondaryColor4: #fff;
 
@@ -93,7 +95,7 @@ body {
     left: -80%;
     width: 80%;
     height: 100%;
-    background: var(--PrimaryColor2);
+    background: var(--PrimaryColor);
     color: var(--SecondaryColor);
     transition: left 0.3s ease-in-out;
     z-index: 3;
@@ -152,7 +154,7 @@ body {
 // nav bar top
 .navbar-top {
   position: fixed;
-  width: 90%;
+  width: 100%;
   background-color: var(--PrimaryColor);
   z-index: 2;
   padding-left: 30px;
@@ -194,123 +196,51 @@ body {
 }
 
 
-// nav type
-.navbarSongTypeChoose {
-  .music-category {
-    .dropdown {
-      // position: relative;
-      display: inline-block;
-      
-      .dropbtn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-      }
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 6;
+// songs collection below search bar
+.songsCollection {
+  padding-top: 120px;
+  max-width: 1200px;
+  overflow: auto;
+  color: var(--SecondaryColor);
+  background-color: var(--PrimaryColor);
+  cursor: pointer;
 
-
-        a {
-          color: black;
-          padding: 12px 16px;
-          text-decoration: none;
-          display: block;
-          
-          &:hover {
-            background-color: #f1f1f1
-          }
-        }
-        
-      }
-      &:hover {
-        .dropdown-content {
-          display: block;
-        }
-      }
-    }
-    $primary-color: #4CAF50;
-    $hover-color: #3e8e41;
-    $background-color: #f9f9f9;
-
-    .dropbtn {
-      color: var(--SecondaryColor);
-      border: none;
-      cursor: pointer;
-    }
-
-    .dropdown {
-      // position: relative;
-      display: inline-block;
-      
-
-      &:hover {
-        .dropdown-content {
-          display: block;
-        }
-      }
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: transparent;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      height: 400px;
-      overflow: auto;
-      left: 44%;
-
-      a {
-        color: var(--SecondaryColor);
-        padding: 5px 10px;
-        text-decoration: none;
-        display: block;
-        font-size: inherit;
-
-        &:hover {
-          background-color: var(--SecondaryColor);
-          color: var(--PrimaryColor);
-        }
-      }
-    }
-
-
-
-    p {
-      font-size: 0.7rem;
-      color: var(--SecondaryColor);
-      cursor: pointer;
-
-      &:hover {
-        color: red;
-      }
+  .MuiBox-root {
+    .css-1563k86-MuiTypography-root {
+      min-width: 100px;
+      font-size: 0.8rem;
     }
   }
-  &::-webkit-scrollbar {
-    height: 0.2rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: var(--SecondaryColor);
+
+  .MuiButtonBase-root {
+    background-color: var(--PrimaryColor);
+    color: var(--SecondaryColor);
+    margin-left: 0;
+
+    .MuiTypography-root {
+      text-transform: none;
+      font-weight: unset;
+      font-size: 0.8rem;
+    }
+    
+    
   }
 }
 
-.testing {
-  padding-top: 120px;
-  width: 600px;
-  overflow: auto;
+// inside songs collections moods and and genres font
+.css-ahj2mt-MuiTypography-root {
+  font-size: 0.8rem !important;
+}
 
-  .subheadings {
-    // height: 400px;
-    overflow: auto;
+// inside top songs selection bar - library element
+.MuiModal-root {
+  .MuiPaper-root {
+    background-color: var(--PrimaryColor);
+    color: var(--SecondaryColor);
+
+    &::before {
+      content: none;
+    }
   }
 }
 
@@ -348,7 +278,7 @@ body {
 //           // z-index: 5;
 //           // height: 150px;
 //           // // display: block;
-//           // color: white;
+//           // color: var(--SecondaryColor);
 //         }
 //       }
 //     }
@@ -362,7 +292,7 @@ body {
 //         // display: none;
 //         display: block;
 //         font-size: 0.7rem;
-//         color: white;
+//         color: var(--SecondaryColor);
         
 //       }
 //     }
@@ -424,7 +354,7 @@ body {
 
 // song playing control
 .music-control-comp {
-  background-color: var(--PrimaryColor2);
+  background-color: var(--PrimaryColor);
   padding: 5px 20px;
   position: fixed;
   width: 100%;
@@ -672,8 +602,6 @@ body {
 
 @media screen and (min-width: 360px) {
 
-
-
   .largerCarousel {
     padding-left: 20px;
     padding-top: 10px;
@@ -756,6 +684,39 @@ body {
     padding-top: 10px;
     .large-slider-img {
       width: 320px;
+    }
+  }
+
+  // songs collection below search bar
+  .songsCollection {
+    .MuiBox-root {
+      .css-1563k86-MuiTypography-root {
+        min-width: 130px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .MuiButtonBase-root {
+      .MuiTypography-root {
+        font-size: 0.9rem;
+      }      
+    }
+  }
+
+  // inside songs collections moods and and genres font
+  .css-ahj2mt-MuiTypography-root {
+    font-size: 0.9rem !important;
+  }
+
+  // inside top songs selection bar - library element
+  .MuiModal-root {
+    .MuiPaper-root {
+      background-color: var(--PrimaryColor);
+      color: var(--SecondaryColor);
+
+      &::before {
+        content: none;
+      }
     }
   }
 }
