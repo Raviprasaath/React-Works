@@ -61,7 +61,6 @@ export default function AccountMenu() {
           <Typography sx={{ minWidth: 100 }}>Profile</Typography>
           <Typography sx={{ minWidth: 100 }}>Profile</Typography>
         </Box>
-        <div className="subheadings">
         <Menu 
           anchorEl={anchorEl}
           id="account-menu"
@@ -162,8 +161,6 @@ export default function AccountMenu() {
             </Typography>
           </MenuItem>
         </Menu>
-        </div>
-        
       </div>
     </>
   );
