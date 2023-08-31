@@ -3,7 +3,6 @@ import { FaBars } from "react-icons/fa";
 
 import Navbar from "./Components/NavbarSide/Navbar.jsx";
 import NavbarTop from "./Components/NavbarSide/NavbarTop.jsx";
-import NavbarSongTypeChoose from "./Components/NavbarSide/NavbarSongTypeChoose.jsx";
 import LargerCarousel from "./Components/HomeCarousel/LargerCarousel.jsx";
 import MusicControlComp from "./Components/MusicControlComp/MusicControlComp.jsx";
 import SongsCollection from "./Components/HomeCarousel/SongsCollection.jsx"
@@ -70,7 +69,6 @@ function App() {
       </div>
 
       <NavbarTop />
-      {/* <NavbarSongTypeChoose /> */}
       
       <SongsCollection />
       <LargerCarousel />

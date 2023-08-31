@@ -33,7 +33,7 @@ const SongsCollection = () => {
           <Typography sx={{ minWidth: 150 }}>Trending Songs</Typography>
           <Typography sx={{ minWidth: 150 }}>New Songs</Typography>
           <Typography sx={{ minWidth: 150 }}>Old Songs</Typography>
-          <Tooltip title="Account settings">
+          <Tooltip title="Genres Collections  ">
             <IconButton
               onClick={handleClick}
               size="small"
