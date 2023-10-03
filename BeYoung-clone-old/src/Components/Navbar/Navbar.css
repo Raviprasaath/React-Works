@@ -1,0 +1,29 @@
+
+.navbar {
+    display: flex;
+    width: 100%;
+    background-color: gainsboro;
+   
+    .navbar-menu {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 20px;
+
+        .navbar-menu-left {
+            display: flex;
+            gap: 10px;
+            .title {
+                letter-spacing: 3px;
+                font-weight: 800;
+            } 
+        }
+        .navbar-icons {
+            display: flex;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+
+    }
+}

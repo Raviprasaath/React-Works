@@ -13,17 +13,17 @@ function App() {
   return (
     <>
     <div className="app-component">
-      {/* <NavbarLoginLayer /> */}
-      {/* <Navbar /> */}
+      <NavbarLoginLayer />
+      <Navbar />
       <HomeCarousel1 />
-      {/* <OffersCarousel />
+      <OffersCarousel />
       <HompageSection3 />
       <h2 className="heading-home-3">New Arrival</h2>
       <HompageSection4 />
       <div className="home-page-5">
         <img className="home-page-5-img" src={homepage5} alt="" />
       </div>
-      <h2 className="heading-home-3"> CATEGORIES FOR MEN </h2> */}
+      <h2 className="heading-home-3"> CATEGORIES FOR MEN </h2>
       
 
     </div>

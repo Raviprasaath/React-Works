@@ -18,8 +18,8 @@ import { EffectFade, Autoplay, Pagination, Navigation } from 'swiper/modules';
 const HomeCarousel1 = () => {
   return (
     <>
-      <div >
-      {/* <Swiper
+      <div className="homepage">
+      <Swiper
         spaceBetween={0}
         loop={true}
         effect={'fade'}
@@ -32,21 +32,18 @@ const HomeCarousel1 = () => {
           clickable: true,
         }}
         modules={[EffectFade, Autoplay, Pagination, Navigation]}
-        className="mySwipper"
+        className="mySwiperHome"
       >
-        <SwiperSlide >
-            <img className="w-11" src={image1} alt="" />
+        <SwiperSlide className="home-page-carousel">
+            <img src={image1} alt="" />
         </SwiperSlide>
-        <SwiperSlide >
-            <img className="w-11" src={image2} alt="" />            
+        <SwiperSlide className="home-page-carousel">
+            <img src={image2} alt="" />            
         </SwiperSlide>
-        <SwiperSlide >
-            <img className="w-11" src={image3} alt="" />                        
+        <SwiperSlide className="home-page-carousel">
+            <img src={image3} alt="" />                        
         </SwiperSlide>
-      </Swiper> */}
-      <div className="bg-amber-500 w-16 h-14">
-
-      </div>
+      </Swiper>
       </div>
     </>
   );

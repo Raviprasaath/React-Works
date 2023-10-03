@@ -1,0 +1,16 @@
+.app-component {
+    width: 100%;
+
+    .heading-home-3 {
+        padding-left: 10px;
+    }
+    .home-page-5 {
+        margin-top: 20px;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        .home-page-5-img {            
+            width: 90%;
+        }
+    }
+}
