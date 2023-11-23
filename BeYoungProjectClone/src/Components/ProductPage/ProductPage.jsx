@@ -66,6 +66,13 @@ const ProductPage = () => {
 
     const [starPosition, setStarPosition] = useState(0);
     const [starEditLock, setStarEditLock] = useState(true);
+
+    const [fetchedReview, setFetchedReview] = useState();
+    const [reviewAdding, setReviewAdding] = useState(false);
+
+    console.log('starPosition', starPosition);
+    console.log('starEditLock', starEditLock);
+
     
     const handlerStarCount = (value) => {
         setStarPosition(value);
@@ -83,14 +90,32 @@ const ProductPage = () => {
 
     const location = useLocation();
     const str = location.pathname;
-
+    
+    const [pinCodeCity, setPinCodeCity] = useState("");
+    const [pinCodeState, setPinCodeState] = useState("");
 
     const handlerPinCodeType = (e) => {
         setPinCodeValue(e.target.value);
         SetPinCodeErrorShow(false);
+        if (e.target.value.length === 6) {
+            pinCodeFetching(e.target.value);
+        } else {
+            setPinCodeCity("");
+            setPinCodeState("");
+        }
+    }
+
+
+    const pinCodeFetching = async(value) => {
+        const response = await fetch(`https://api.postalpincode.in/pincode/${value}`);
+        const result = await response.json();
+        if (result[0].Status === "Success") {
+            setPinCodeCity(result[0].PostOffice[0].District);
+            setPinCodeState(result[0].PostOffice[0].State);
+        }
     }
     const handlerPinCodeCheck = () => {
-        if (pinCodeValue > 110000 && pinCodeValue < 880000 ) {
+        if (pinCodeCity) {
             setPinCodeRangeCheck(true);
         } else {
             setPinCodeRangeCheck(false);
@@ -241,9 +266,10 @@ const ProductPage = () => {
             productFirstInFetch("", "GET", token);
             handlerCardGetting(token);
             productsIdArray = [];
-
+            reviewFetchingSection("GET", "", token, reversedStrFinal);
           } else {
             setLoginCheck(false);
+            setUserReviewWriteUpOpen(false);
             setProductsFavHeartId([]);
             setCartAddTrack(false);
 
@@ -252,7 +278,7 @@ const ProductPage = () => {
           setStarEditLock(true);
           setStarPosition(0);
 
-    }, [location.pathname, refreshNavbar, reversedStrFinal ]);
+    }, [location.pathname, refreshNavbar, reversedStrFinal, reviewAdding ]);
 
 
     const handlerCheckout = () => {
@@ -446,7 +472,7 @@ const ProductPage = () => {
                         <div className="flex justify-between w-[80%] my-4 ">
                             <div className="flex gap-2 items-center">
                                 <div>
-                                    Deliver to : {pinCodeValue} 
+                                    Deliver to {pinCodeCity}, {pinCodeState} : {pinCodeValue} 
                                 </div>
                                 <div>
                                     <TiTick className="bg-green-400 p-1 text-[1.5rem] rounded-full text-white" />
@@ -498,7 +524,50 @@ const ProductPage = () => {
         </div>
     )
 
+    const reviewFetchingSection = async(method, ratingValue, tokenVal, reversedStrFinal) => {
+        let myHeaders = new Headers();
+        myHeaders.append("projectID", "vflsmb93q9oc");
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Authorization", `Bearer ${tokenVal}`);
+
+          
+        let raw = JSON.stringify({
+        "ratings": ratingValue
+        });
+
+        let requestOptions = {
+        method:  method,
+        headers: myHeaders,
+        redirect: 'follow',
+        ...(method ==="POST" && 
+        {body: raw}
+        )
+        };
+
+        const response = await fetch(`https://academics.newtonschool.co/api/v1/ecommerce/review/${reversedStrFinal}`, requestOptions)
+        const result = await response.json();
+        if (result.status === "success" && method === "GET") {
+            setFetchedReview(result.data);
+        } else if (method === "POST") {
+            setReviewAdding(!reviewAdding);
+        }
+    }
     
+    const handlerReviewCheck = () => {
+        if (loginCheck) {
+            setUserReviewWriteUpOpen(true)
+        } else {
+            openDialog();
+        }
+    }
+
+    const userNames = [
+        'Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack',
+        'Karen', 'Leo', 'Mia', 'Nathan', 'Olivia', 'Peter', 'Quinn', 'Rachel', 'Sam', 'Taylor',
+        'Ursula', 'Victor', 'Wendy', 'Xavier', 'Yvonne', 'Zachary', 'Anna', 'Ben', 'Catherine',
+        'Daniel', 'Emma', 'Felix', 'Gina', 'Harrison', 'Isabel', 'James', 'Katie', 'Liam', 'Megan',
+        'Noah', 'Oscar', 'Penelope', 'Quincy', 'Ruby', 'Sophia', 'Thomas', 'Uma', 'Vincent', 'Willow'
+    ];
 
 
 
@@ -508,7 +577,72 @@ const ProductPage = () => {
     const ratingReview = (
         <div className="p-2 bg-gray-100">
             <h4 className={`my-2 ${isMobile?'text-[0.9rem]':'text-[1.3rem]'} font-medium`}>RATINGS & REVIEW</h4>
-            <div className="m-2 p-2 flex flex-col gap-2 md1:flex-row">
+
+            {fetchedReview?.map((item, index)=> (
+                <div key={index}>
+                    <div className="m-2 p-2 flex flex-col gap-2 md1:flex-row">
+                        <div className=" flex flex-col gap-2 w-full">
+                            <div className="flex justify-between">
+                                {item.ratings === 1 ? (
+                                    <div className="flex">
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                    </div>
+                                ) : item.ratings === 2 ? (
+                                    <div className="flex">
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                    </div>
+                                ) : item.ratings === 3 ? (
+                                    <div className="flex">
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                    </div>
+                                ) : item.ratings === 4 ? (
+                                    <div className="flex">
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-gray-300" />
+                                    </div>
+                                ) : item.ratings === 5 ? (
+                                    <div className="flex">
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                        <AiFillStar className="text-[1.4rem] text-black" />
+                                    </div>
+                                ) : (<></>)}
+
+
+                                <p className={`text-gray-400 text-[0.9rem]`}>{userNames[Math.floor(Math.random()*10)+1]}</p>
+                            </div>
+                            <div className="flex w-[120px]">                        
+                                {item.ratings === 1 ? "Below Average" : item.ratings === 2 ? "Average" :
+                                item.ratings === 3 ? "Good" : item.ratings === 4 ? "Very Good" : 
+                                item.ratings === 5 ? "Excellent" : ""}
+                            </div>
+                        </div>                
+                    </div>
+                    <div className="border border-yellow-300"></div>
+
+                </div>
+
+
+            ))}
+
+            {/* <div className="m-2 p-2 flex flex-col gap-2 md1:flex-row">
                 <div className=" flex flex-col gap-2">
                     <div className="flex justify-between">
                         <div className="flex">
@@ -524,11 +658,10 @@ const ProductPage = () => {
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio libero fugit delectus cumque deleniti distinctio enim ratione temporibus perspiciatis ea. Esse nobis quasi quaerat libero incidunt voluptate consectetur beatae nulla!</p>
                     </div>
                 </div>                
-            </div>
+            </div> */}
 
-            <div className="border border-yellow-300"></div>
             
-            <div className="m-2 p-2 flex flex-col gap-2 md1:flex-row">
+            {/* <div className="m-2 p-2 flex flex-col gap-2 md1:flex-row">
                 <div className="">
                     <div className="flex justify-between">
                         <div className="flex">
@@ -552,9 +685,8 @@ const ProductPage = () => {
                     <button className="h-fit md1:m-auto w-[50px] text-center bg-teal-400 hover:bg-teal-300 text-white px-2">Delete</button>
                 </div>                
                 </div>
-            </div>
+            </div> */}
             
-            <div className="border border-yellow-300"></div>
 
             {userReviewWriteUpOpen ? 
                 (
@@ -601,15 +733,24 @@ const ProductPage = () => {
                                 />
                             </div>
                         </div>
-                        <div className="flex flex-col w-full gap-2 md1:flex-row">
-                            <textarea className="w-[100%]  h-[100px] md1:h-[80px] border-2 border-solid border-gray-300" type="text" placeholder="Add a review" />
-                            <button className="h-fit w-[50px] my-2 text-center bg-teal-400 hover:bg-teal-300 text-white px-2">Add</button>
+                        <div className="flex flex-col items-center w-full gap-2 md1:flex-row">
+                            <div className="w-[120px]">
+                                {starPosition === 1 ? "Below Average" : starPosition === 2 ? "Average" :
+                                starPosition === 3 ? "Good" : starPosition === 4 ? "Very Good" : 
+                                starPosition === 5 ? "Excellent" : "Add Your Rating"}
+                            </div>
+                            {/* <textarea className="w-[100%]  h-[100px] md1:h-[80px] border-2 border-solid border-gray-300" type="text" placeholder="Add a review" /> */}
+                            <button onClick={
+                                ()=>
+                                {reviewFetchingSection("POST", starPosition, tokenVal, reversedStrFinal),
+                                setUserReviewWriteUpOpen(false)}
+                            } className="h-fit w-[50px] my-2 text-center bg-teal-400 hover:bg-teal-300 text-white px-2">Add</button>
                         </div>
                     </div>
                 ):(
                     <div className="m-2 p-2 flex flex-col gap-2">
                         <button 
-                            onClick={()=>setUserReviewWriteUpOpen(true)}
+                            onClick={()=>handlerReviewCheck()}
                             className="h-fit w-[200px] rounded-lg my-2 py-2 text-center bg-teal-400 hover:bg-teal-300 text-white px-2">
                                 Add Your Review Here
                             </button>
@@ -826,6 +967,7 @@ const ProductPage = () => {
             } else {
               productAddingInFetch(idVal, "PATCH", tokenVal);
             }
+            refreshNavbar();
         } else {
             openDialog();
         }
@@ -937,7 +1079,8 @@ const ProductPage = () => {
         const updateLocalArray = productsIdArray.filter((item) => item !== idVal);
         productsIdArray = updateLocalArray;
         
-        productFirstInFetch("", "GET", token)
+        productFirstInFetch("", "GET", token);
+        refreshNavbar();
         }
     } catch (error) {
         console.log("error", error);
