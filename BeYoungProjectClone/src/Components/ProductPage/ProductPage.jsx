@@ -159,7 +159,7 @@ const ProductPage = () => {
         myHeaders.append("Authorization", `Bearer ${tokenVal}`);
 
         let raw = JSON.stringify({
-        "quantity": `${quantity}`
+        "quantity": Number(`${quantity}`)
         });
 
         let requestOptions = {
