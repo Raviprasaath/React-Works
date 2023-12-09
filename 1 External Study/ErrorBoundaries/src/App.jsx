@@ -5,9 +5,18 @@ import ErrorBoundary from "./ErrorBoundary";
 function App () {
   return (
     <>
-    <ErrorBoundary>
-      <Counter />
-    </ErrorBoundary>
+      <ErrorBoundary>
+        <Counter />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Counter />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Counter />
+      </ErrorBoundary>
+      <ErrorBoundary>
+        <Counter />
+      </ErrorBoundary>
     </>
   )
 }
