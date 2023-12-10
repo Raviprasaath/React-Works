@@ -1,30 +1,32 @@
-const fetchDataRequest = () => {
-    return {
-        type: 'FETCH_DATA_REQUEST',
-    };
-};
-
-const fetchDataSuccess = (data) => {
-    return {
-        type: 'FETCH_DATA_SUCCESS',
-        payload: data,
-    };
-};
-
-const fetchDataFailure = (error) => {
-    return {
-        type: 'FETCH_DATA_FAILURE',
-        payload: error,
-    };
-};
-
-// Thunk action creator
-export const fetchData = () => {
-    return (dispatch) => {
-        dispatch(fetchDataRequest());
-        setTimeout(()=> {
-            const fetchData = { message: 'Data fetched successfully' }
-            dispatch(fetchDataSuccess(fakeData));
-        }, 2000);
-    }
+export const invokeAPI = () => (dispatch) => {
+  fetch('https://api.github.com/users/Raviprasaath')
+  .then(res => res.json())
+  .then(result => 
+    dispatch({
+      type: 'postSave',
+      payload: result,
+    }),  
+  );
 }
+
+// thunk is working based on the call back function
+// here in 1st line dispatch is  a callback function
+
+
+// below is another way to write the code
+/*
+
+export const invokeAPI = () => {
+  return (dispatch) => {
+    fetch('https://api.github.com/users/Raviprasaath')
+    .then(res => res.json())
+    .then(result => 
+      dispatch({
+        type: 'postSave',
+        payload: result,
+      }),  
+    );
+  }
+}
+
+*/
