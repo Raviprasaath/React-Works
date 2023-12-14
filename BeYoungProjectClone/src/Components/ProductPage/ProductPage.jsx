@@ -363,7 +363,7 @@ const ProductPage = () => {
                     direction="vertical"
                     watchSlidesProgress={true}
                     modules={[FreeMode, Navigation, Thumbs]}
-                    className="mySwiper"
+                    className="mySwiper myThumbSlider my-thumbs"
                 >
                     {singleProduct?.images.map((item, index)=> (
                         <SwiperSlide className="w-[100px] h-[100%]" key={index} >                            
