@@ -1,0 +1,24 @@
+{
+    "careers" : [
+        {
+            "id": 1,
+            "title": "Senior Developer",
+            "salary": 100000,
+            "location": "Bangalore"
+        },
+        {
+            "id": 2,
+            "title": "React Developer",
+            "salary": 85000,
+            "location": "Bangalore"
+        },
+        {
+            "id": 3,
+            "title": "Java Developer",
+            "salary": 50000,
+            "location": "Chennai"
+        }
+    ]
+}
+
+
