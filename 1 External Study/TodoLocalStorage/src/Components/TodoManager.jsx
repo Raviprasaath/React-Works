@@ -25,9 +25,9 @@ const TodoManager = () => {
 
   const handlerAddBtn = () => {
     if (todoData.title && todoData.description) {
-    localStorage.setItem('todoList',JSON.stringify([
-      ...getDataFromLocal, todoData
-    ]));
+      localStorage.setItem('todoList',JSON.stringify([
+        ...getDataFromLocal, todoData
+      ]));
       setTodo((prev)=>([
         ...prev, todoData
       ]));
@@ -42,9 +42,6 @@ const TodoManager = () => {
   }
 
   const updatedData = (value) => {
-    console.log("getting ",value);
-    console.log("already ",todo);
-
     const tempArr = todo.map((item, index)=>{
       if(value.id === index) {
         return {
@@ -58,7 +55,6 @@ const TodoManager = () => {
     localStorage.setItem('todoList', JSON.stringify(tempArr));
     setTodo(tempArr);
   }
-  console.log("final ",todo)
   useEffect(()=> {
     if (getDataFromLocal) {
       setTodo(getDataFromLocal);
