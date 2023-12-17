@@ -17,3 +17,5 @@ function App() {
 }
 
 export default App
+
+// npx json-server --watch server/db.json --port 8080

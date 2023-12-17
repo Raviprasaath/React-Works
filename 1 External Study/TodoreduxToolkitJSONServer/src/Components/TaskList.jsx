@@ -3,13 +3,22 @@ import "@radix-ui/themes/styles.css";
 import { Table } from "@radix-ui/themes";
 
 import UpdateTask from "./UpdateTask";
+import { useDispatch, useSelector } from "react-redux";
+import { getTaskFromServer, taskRemoving } from "../slices/taskSlice";
+import { useEffect } from "react";
 
 const TaskList = () => {
+  const {totalTasks: allTasks} = useSelector((state)=>state.task);
+  const dispatch = useDispatch();
 
   const handlerDelete = (item) => {
-
+    dispatch(taskRemoving(item));
   };
-  const allTasks = [];
+
+  useEffect(()=> {
+    dispatch(getTaskFromServer());
+  }, [])
+
   return (
     <>
     {allTasks.length === 0 ? (<p className="text-center">Tasks Not Added</p>):(

@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { taskAdding } from '../slices/taskSlice';
 
-const TaskAddition = () => {
+const TaskAddition = () => {  
   const [singleTask, setSingleTask] = useState({ title:'', description:'' })
   const [allTask, setAllTask] = useState([]);
 
+  const dispatch = useDispatch();
+  
   const handlerFormSubmit = (e) => {
     e.preventDefault();
     if (singleTask.title && singleTask.description) {
       setAllTask((prev)=>([...prev, singleTask]));
       setSingleTask({title:'', description:''})
+      dispatch(taskAdding(singleTask));
     }
   }
   const handlerTitle = (e) => {
@@ -21,7 +26,6 @@ const TaskAddition = () => {
       ...prev, description:e.target.value
     }))
   }
-  console.log(allTask);
 
   return (
     <>
