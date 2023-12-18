@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { taskAdding } from '../slices/taskSlice';
+import { postTaskFetch, taskAdding } from '../slices/taskSlice';
 
 const TaskAddition = () => {  
   const [singleTask, setSingleTask] = useState({ title:'', description:'' })
@@ -13,7 +13,8 @@ const TaskAddition = () => {
     if (singleTask.title && singleTask.description) {
       setAllTask((prev)=>([...prev, singleTask]));
       setSingleTask({title:'', description:''})
-      dispatch(taskAdding(singleTask));
+      // dispatch(taskAdding(singleTask));
+      dispatch(postTaskFetch(singleTask));
     }
   }
   const handlerTitle = (e) => {

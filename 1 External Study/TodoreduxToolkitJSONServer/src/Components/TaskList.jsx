@@ -4,7 +4,7 @@ import { Table } from "@radix-ui/themes";
 
 import UpdateTask from "./UpdateTask";
 import { useDispatch, useSelector } from "react-redux";
-import { getTaskFromServer, taskRemoving } from "../slices/taskSlice";
+import { deleteTaskFetch, getTaskFetch, taskRemoving } from "../slices/taskSlice";
 import { useEffect } from "react";
 
 const TaskList = () => {
@@ -13,10 +13,11 @@ const TaskList = () => {
 
   const handlerDelete = (item) => {
     dispatch(taskRemoving(item));
+    dispatch(deleteTaskFetch(item));
   };
 
   useEffect(()=> {
-    dispatch(getTaskFromServer());
+    dispatch(getTaskFetch())
   }, [])
 
   return (

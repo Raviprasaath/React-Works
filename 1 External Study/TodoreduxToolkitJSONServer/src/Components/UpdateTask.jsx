@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import "./UpdateTask.css";
 import { useDispatch } from "react-redux";
-import { taskUpdating } from "../slices/taskSlice";
+import { taskUpdating, updateTaskFetch } from "../slices/taskSlice";
 
 const UpdateTask = ({idVal}) => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const UpdateTask = ({idVal}) => {
       setAllTask((prev)=>([...prev, singleTask]));
       setSingleTask({title:'', description:''})
       dispatch(taskUpdating(singleTask));
+      dispatch(updateTaskFetch(singleTask))
     }
   }
   const handlerTitle = (e) => {
