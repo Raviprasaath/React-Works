@@ -24,7 +24,6 @@ function App() {
         <Route path='careers' element={<CareerLayouts />} >
           <Route index element={<Careers />} />
           <Route path=':id' element={<CareerDetails />} />
-
         </Route>
         <Route path='*' element={<PageNotFound />} />
       </Route>

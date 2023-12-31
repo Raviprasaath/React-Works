@@ -10,12 +10,12 @@ const AppBreadCrumbs = () => {
     .map((crumb)=>{
         crumbLink += `/${crumb}`;
         return <Link to={crumbLink} key={crumb}>{crumb}</Link>
-    })
-
+      })      
+  console.log('crumbPath');
     return (
     <div>
         <Breadcrumbs aria-label="breadcrumb">
-            {crumbPath}
+          {crumbPath}
         </Breadcrumbs>
     </div>
   )

@@ -46,7 +46,7 @@ const HomeMenCategories = () => {
   const screenSize = useScreenSize();
   const isMobile = screenSize < 960;
   const { data, loading } = useDataContext();
-
+  console.log("fethced data", data);
   const [travelData, setTravelData] = useState([]);
   const [plainTShirt, setPlainTShirt] = useState([]);
   const [poloTShirt, setPoloTShirt] = useState([]);
