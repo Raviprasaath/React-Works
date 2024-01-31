@@ -19,3 +19,5 @@ function App() {
 export default App
 
 // npx json-server --watch server/db.json --port 8080
+// starting a server run this command in the main directory 
+// D:\Newton school\FSD_backup_codes\React\1 External Study\TodoreduxToolkitJSONServer

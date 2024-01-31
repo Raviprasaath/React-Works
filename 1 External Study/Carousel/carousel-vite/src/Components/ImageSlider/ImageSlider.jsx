@@ -17,7 +17,7 @@ const ImageSlider = () => {
 
     useEffect(()=> {
         const timer = setTimeout(()=> {
-            imageChanger('next');
+            // imageChanger('next');
         }, 1000)
 
         return (()=> {
