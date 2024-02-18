@@ -34,7 +34,7 @@ function App() {
         </div>
         <div>
           If we not use use Transition mean same time it will rerender the
-          input and table data. 
+          input and table data
         </div>
         <div>
           Cons: So if we use Transition 2 times re render will happen. Limited
