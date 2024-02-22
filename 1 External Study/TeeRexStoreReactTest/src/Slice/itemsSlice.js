@@ -4,14 +4,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 export const getCartItems = createAsyncThunk(
     'products',
     async () => {
-        console.log('check');
         try {
             const response = await fetch('https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const jsonData = await response.json();
-            console.log(jsonData);
             return jsonData;
         } catch (error) {
             console.error('Error fetching data:', error);

@@ -14,8 +14,8 @@ function App() {
       <div className="grid place-content-center fixed z-10 w-full top-14 bg-white" >
         <SearchBar />
       </div>
-      <div className="flex justify-center my-24">
-        <div className="hidden lg:block fixed left-0 top-16">
+      <div className="relative flex justify-center my-24">
+        <div className="lg:block fixed left-0 top-16 z-20 ">
           <SideBar />
         </div>
         <ProductPage />
