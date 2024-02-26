@@ -5,6 +5,7 @@ function App() {
   const [input, setInput] = useState("");
   const [list, setList] = useState([]);
   const [isLoading, startTransition] = useTransition()
+  
   const handleChange = (e) => {
     const value = e.target.value;
     setInput(value);
@@ -22,6 +23,7 @@ function App() {
     })
     
   }
+  console.log("render")
 
   return (
     <>

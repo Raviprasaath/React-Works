@@ -1,8 +1,6 @@
 import { useReducer, useState } from "react";
 
-
 const Bank = () => {
-
     const amountTransfer = (state, action) => {
         switch (action.type) {
             case 'WITHDRAW':
@@ -20,7 +18,6 @@ const Bank = () => {
         const num = Number(e.target.value);
         setAmount(num);
     }
-
 
     return (
         <>
