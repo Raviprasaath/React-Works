@@ -21,7 +21,6 @@ function App() {
     startTransition(()=> {
       setList(listItems);
     })
-    
   }
   console.log("render")
 

@@ -19,7 +19,7 @@ export const RandomMessage = () => {
     useEffect(() => {
         const time = setInterval(() => {
             chat();
-        }, 1000);
+        }, 2000);
 
         return () => clearInterval(time);
     }, []);

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 export const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   
@@ -19,18 +18,14 @@ export const useScreenSize = () => {
   return screenSize;
 }
 
-
 // --------------------
 
 // import { useScreenSize } from "../../CommonFunctions/CommonFunctions";
 
-
 // const screenSize = useScreenSize();
 // const isMobile = screenSize < 960;
 
-
 // ------------Example 2
-
 
 import React, { useState } from 'react';
 
@@ -63,12 +58,6 @@ function CounterComponent() {
 }
 
 export default CounterComponent;
-
-
-
-
-
-
 
 // Example 3
 

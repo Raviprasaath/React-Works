@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import './PrimeNumberBusket.css';
-function PrimeNumberBusket(){
+import './PrimeNumberBasket.css';
+function PrimeNumberBasket(){
     let arr = ["1","2","3","4","5","6","7","8","9"];
     const [array, setArray] = useState(arr);
-    const [selectedItem, setSeletedItem] = useState();
+    const [selectedItem, setSelectedItem] = useState();
     const [list, setList] = useState([]);
 
     const isPrime = (num) => {
@@ -20,13 +20,13 @@ function PrimeNumberBusket(){
         let num = parseInt(val);
         if (isPrime(num)) {
             setList((prev) => [...prev,val]);
-            setSeletedItem(null);
+            setSelectedItem(null);
             let newArray = array.filter((item) => val !== item);
             setArray(newArray);
         }
     }
     const handleNumber = (e) => {
-        setSeletedItem(e.target.textContent);
+        setSelectedItem(e.target.textContent);
     }
     const handleOver = (e) => {
         e.preventDefault();
@@ -44,7 +44,6 @@ function PrimeNumberBusket(){
                 {array.map((item,index)=>(
                     <div key={index} draggable={true} className='list' onDragStart={(e)=>handleNumber(e)} >{item}</div>
                 ))}
-               
             </div>
             <div className="busket" 
                 onDrop={handleDrop}
@@ -58,4 +57,4 @@ function PrimeNumberBusket(){
         </div>
     )
 }
-export default PrimeNumberBusket;
+export default PrimeNumberBasket;

@@ -1,0 +1,19 @@
+
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  border: 2px solid black;
+}
+
+.flex-head {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}

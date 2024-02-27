@@ -1,5 +1,5 @@
 import './App.css'
-import PrimeNumberBusket from './Components/PrimeNumberBusket'
+import PrimeNumberBasket from './Components/PrimeNumberBasket'
 
 import Rotate from './Components/Rotate'
 
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <PrimeNumberBusket />
+      <PrimeNumberBasket />
       <Rotate />
     </>
   )

@@ -1,5 +1,4 @@
 
-
 function array() {
     return (a, b) => a+b;
 }

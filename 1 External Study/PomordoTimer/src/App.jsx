@@ -19,6 +19,8 @@ export default function App() {
     }, 1000);
   };
 
+  console.log("render")
+
   const pauseTimer = () => {
     clearInterval(intervalRef.current);
   };
