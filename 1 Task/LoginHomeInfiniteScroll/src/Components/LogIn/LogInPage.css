@@ -1,0 +1,44 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-text {
+    padding: 10px 20px;
+    width: 300px;
+}
+
+.btn-submit {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: rgba(255, 0, 0, 0.721);
+}
+
+.auth-swap {
+    color: rgb(0, 119, 255);
+    cursor: pointer;
+}
+.auth-swap:hover {
+    color: rgba(0, 119, 255, 0.663);
+}
+
+.error-statement {
+    color: red;
+    padding: 5px 0px;
+}

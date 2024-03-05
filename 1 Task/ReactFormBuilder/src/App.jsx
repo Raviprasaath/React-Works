@@ -7,10 +7,10 @@ function App() {
   return (
     <>
       <ReactFormGenerator
-    form_action="/path/to/form/submit"
-    form_method="POST"
-    task_id={12}
-  />
+        form_action="/path/to/form/submit"
+        form_method="POST"
+        task_id={12}
+      />
     </>
   )
 }
