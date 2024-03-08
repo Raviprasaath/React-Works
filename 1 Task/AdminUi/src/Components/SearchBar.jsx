@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getSearchValue } from "../slice/sliceFetch";
 
 const SearchBar = () => {
   const [searchingValue, setSearchingValue] = useState("");
-  const [debouncedSearchingValue, setDebouncedSearchingValue] = useState("");
+
+  const dispatch = useDispatch();
 
   const handlerSearching = (e) => {
     setSearchingValue(e.target.value);
@@ -10,12 +13,10 @@ const SearchBar = () => {
 
   useEffect(()=> {
     let time = setTimeout(()=> {
-        setDebouncedSearchingValue(searchingValue);
-    }, 1000)
+        dispatch(getSearchValue(searchingValue));
+    }, 100)
     return ()=>clearTimeout(time);
   }, [searchingValue])
-
-  console.log(debouncedSearchingValue);
 
   return (
     <>

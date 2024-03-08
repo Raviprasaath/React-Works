@@ -4,8 +4,8 @@ import { fetching, getPageLength } from "../slice/sliceFetch";
 import TableContent from "./TableContent";
 
 
-const TableBody = ( {checked} ) => {
-  const { fetchedValues, pageLength, currentPage, deleteSelected, deleteSelectedAll } = useSelector((state) => state.fetchedData);
+const TableBody = ( {check} ) => {
+  const { fetchedValues, searchValue, currentPage, deleteSelected } = useSelector((state) => state.fetchedData);
 
   const dispatch = useDispatch();
   const [dataDisplay, setDataDisplay] = useState([]);
@@ -13,17 +13,17 @@ const TableBody = ( {checked} ) => {
   const [pageEnd, setPageEnd] = useState(10);
   const [inputChanger, setInputChanger] = useState(0);
   const [selectDelete, setSelectDelete] = useState([]);
+  const [singleCheck, setSingleCheck] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
 
   const handlerCheckBox = (e, value) => {
-      if (e.target.checked) {
-          setSelectDelete(prev => [...prev, value]);
-      } else {
-          setSelectDelete(prev => prev.filter(item => item !== value));
-      }
+    setSingleCheck(!singleCheck)
+    if (e.target.checked) {
+      setSelectDelete(prev => [...prev, value]);
+    } else {
+      setSelectDelete(prev => prev.filter(item => item !== value));
+    }
   }
-  
-  console.log(selectDelete);
-
 
   const handlerUpdate = (e) => {
     if (inputChanger === e) {
@@ -34,7 +34,11 @@ const TableBody = ( {checked} ) => {
   }
 
   const handlerDelete = (e) => {
-    setDataDisplay(dataDisplay.filter((item)=>item.id !== e))
+    if (searchResult.length === 0) {
+      setDataDisplay(dataDisplay.filter((item)=>item.id !== e));
+    } else if (searchResult.length !== 0) {
+      setSearchResult(searchResult.filter((item)=>item.id !== e));
+    }
   }
 
 
@@ -57,36 +61,98 @@ const TableBody = ( {checked} ) => {
   }, [currentPage])
 
 
-
   useEffect(()=> {
-    const temp = [];
-    for (let i=pageStart; i<10; i++) {
-      temp.push(i+1);
+    if (check) {
+      
+      const temp = [];
+      for (let i=pageStart; i<10; i++) {
+        temp.push(i+1);
+      }
+      const temp2 = dataDisplay.filter((item, index) => {
+        return !temp.includes(index + 1);
+      });
+      if (searchResult.length === 0) {
+        setDataDisplay(temp2);
+      } else if (searchResult.length !== 0) {
+        setSearchResult(temp2);
+      }
+      
+    } else {
+      
+      const temp = dataDisplay.filter((item)=> {
+        return !(selectDelete).includes(item.id)
+      })
+      
+      if (searchResult.length === 0) {
+        setDataDisplay(temp);
+      } else if (searchResult.length !== 0) {
+        setSearchResult(temp);
+      } 
     }
-    const temp2 = dataDisplay.filter((item)=> {
-      return !(temp).includes(item.id)
-    })
-    setDataDisplay(temp2)
-    console.log('temp2', temp);
-
-  }, [deleteSelectedAll, deleteSelected])
-
-  useEffect(()=> {
-    const temp = dataDisplay.filter((item)=> {
-      return !(selectDelete).includes(item.id)
-    })
-    setDataDisplay(temp)
   }, [deleteSelected])
 
+  const updateInput = (data, id) => {
+    const updatedDataDisplay = dataDisplay.map((item) => {
+      
+      if (item.id === id) {
+        return { ...item, name: data.name, email: data.email, role: data.role };
+      }
+      return item;
+    });
+    setDataDisplay(updatedDataDisplay);
+    setSearchResult(updatedDataDisplay);
+    setInputChanger(-1);
+  }
 
+  useEffect(() => {
+    const arrayCopy = [...dataDisplay];
+    
+    let filteredData = arrayCopy.filter((item) =>
+      item.name.toLowerCase().includes(searchValue?.toLowerCase()) ||
+      item.email.toLowerCase().includes(searchValue?.toLowerCase()) ||
+      item.role.toLowerCase().includes(searchValue?.toLowerCase())
+    );
+    console.log(searchValue);
+    if (searchValue.length !== 0) {
+      setSearchResult(filteredData);
+    } else if (searchValue.length === 0) {
+      let array = [];
+      setSearchResult(array);
+    }
+  }, [searchValue]);
 
+  if (searchResult.length !== 0) {
+    return (
+      searchResult.length > 0 && (searchResult.slice(pageStart, pageEnd).map((item)=>
+        <tr key={item.id} >
+          <TableContent 
+            item={item} 
+            handlerUpdate={handlerUpdate} 
+            inputChanger={inputChanger} 
+            handlerDelete={handlerDelete} 
+            handlerCheckBox={handlerCheckBox} 
+            check={check} 
+            singleCheck={singleCheck} 
+            updateInput={updateInput}
+          />
+        </tr>
+      ))
+    );
+  }
 
-  console.log(pageStart, pageEnd);
-  console.log(checked);
   return (
     dataDisplay.length > 0 && (dataDisplay.slice(pageStart, pageEnd).map((item)=>
       <tr key={item.id} >
-        <TableContent item={item} handlerUpdate={handlerUpdate} inputChanger={inputChanger} handlerDelete={handlerDelete} handlerCheckBox={handlerCheckBox} checked={checked} />
+        <TableContent 
+          item={item} 
+          handlerUpdate={handlerUpdate} 
+          inputChanger={inputChanger} 
+          handlerDelete={handlerDelete} 
+          handlerCheckBox={handlerCheckBox} 
+          check={check} 
+          singleCheck={singleCheck} 
+          updateInput={updateInput}
+        />
       </tr>
     ))
   );

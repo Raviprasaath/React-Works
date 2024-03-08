@@ -17,7 +17,7 @@ const sliceFetch = createSlice({
         pageLength: 1,
         currentPage: 1,
         deleteSelected: false,
-        deleteSelectAll: false,
+        searchValue: '',
     },
     reducers: {
         getPageLength: (state, action) => {
@@ -29,8 +29,8 @@ const sliceFetch = createSlice({
         getDeleteSelected: (state) => {
             state.deleteSelected = !state.deleteSelected;
         },
-        getDeleteSelectedAll: (state) => {
-            state.deleteSelectAll = !state.deleteSelectAll;
+        getSearchValue: (state, action) => {
+            state.searchValue = action.payload;
         }
     },
     extraReducers(builder) {
@@ -51,5 +51,5 @@ const sliceFetch = createSlice({
     }
 })
 
-export const { getPageLength, getCurrentPageValue, getDeleteSelected, getDeleteSelectedAll } = sliceFetch.actions;
+export const { getPageLength, getCurrentPageValue, getDeleteSelected, getSearchValue } = sliceFetch.actions;
 export default sliceFetch.reducer;
