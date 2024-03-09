@@ -71,11 +71,13 @@ const TableBody = ( {check} ) => {
       const temp2 = dataDisplay.filter((item, index) => {
         return !temp.includes(index + 1);
       });
-      if (searchResult.length === 0) {
-        setDataDisplay(temp2);
-      } else if (searchResult.length !== 0) {
-        setSearchResult(temp2);
-      }
+      // if (searchResult.length === 0) {
+      //   setDataDisplay(temp2);
+      // } else if (searchResult.length !== 0) {
+      //   setSearchResult(temp2);
+      // }
+      setDataDisplay(temp2);
+      setSearchResult(temp2);
       
     } else {
       
@@ -83,11 +85,13 @@ const TableBody = ( {check} ) => {
         return !(selectDelete).includes(item.id)
       })
       
-      if (searchResult.length === 0) {
-        setDataDisplay(temp);
-      } else if (searchResult.length !== 0) {
-        setSearchResult(temp);
-      } 
+      // if (searchResult.length === 0) {
+      //   setDataDisplay(temp);
+      // } else if (searchResult.length !== 0) {
+      //   setSearchResult(temp);
+      // } 
+      setDataDisplay(temp);
+      setSearchResult(temp);
     }
   }, [deleteSelected])
 

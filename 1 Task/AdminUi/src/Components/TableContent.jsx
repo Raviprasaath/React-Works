@@ -5,7 +5,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { useState } from "react";
 
 const TableContent = ( {item, handlerUpdate, handlerDelete, inputChanger, handlerCheckBox, check, singleCheck, updateInput} ) => {
-  
+  // delete All pending
   const [updatedDetails, setUpdatedDetails] = useState({
     'name':'',
     'email':'',

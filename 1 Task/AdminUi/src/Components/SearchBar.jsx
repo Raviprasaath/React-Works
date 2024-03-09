@@ -12,8 +12,8 @@ const SearchBar = () => {
   };
 
   useEffect(()=> {
-    let time = setTimeout(()=> {
-        dispatch(getSearchValue(searchingValue));
+    let time = setTimeout(()=> {  
+      dispatch(getSearchValue(searchingValue));
     }, 100)
     return ()=>clearTimeout(time);
   }, [searchingValue])
