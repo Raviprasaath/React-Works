@@ -60,10 +60,10 @@ const TableBody = ( {check} ) => {
     setPageEnd(currentPage*10)
   }, [currentPage])
 
+  console.log(pageStart, pageEnd)
 
   useEffect(()=> {
     if (check) {
-      
       const temp = [];
       for (let i=pageStart; i<10; i++) {
         temp.push(i+1);
@@ -71,11 +71,7 @@ const TableBody = ( {check} ) => {
       const temp2 = dataDisplay.filter((item, index) => {
         return !temp.includes(index + 1);
       });
-      // if (searchResult.length === 0) {
-      //   setDataDisplay(temp2);
-      // } else if (searchResult.length !== 0) {
-      //   setSearchResult(temp2);
-      // }
+
       setDataDisplay(temp2);
       setSearchResult(temp2);
       
@@ -85,11 +81,6 @@ const TableBody = ( {check} ) => {
         return !(selectDelete).includes(item.id)
       })
       
-      // if (searchResult.length === 0) {
-      //   setDataDisplay(temp);
-      // } else if (searchResult.length !== 0) {
-      //   setSearchResult(temp);
-      // } 
       setDataDisplay(temp);
       setSearchResult(temp);
     }
@@ -142,6 +133,20 @@ const TableBody = ( {check} ) => {
         </tr>
       ))
     );
+  }
+
+  if (dataDisplay.length === 0) {
+    return (
+      <>
+        <tr>
+          <td className="w-80"></td>
+          <td className="w-80"></td>
+          <td className="w-80"></td>
+          <td className="w-80"></td>
+          <td className="w-80"></td>
+        </tr>
+      </>
+    )
   }
 
   return (

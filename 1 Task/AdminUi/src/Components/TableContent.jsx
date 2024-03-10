@@ -5,7 +5,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { useState } from "react";
 
 const TableContent = ( {item, handlerUpdate, handlerDelete, inputChanger, handlerCheckBox, check, singleCheck, updateInput} ) => {
-  // delete All pending
+
   const [updatedDetails, setUpdatedDetails] = useState({
     'name':'',
     'email':'',
@@ -25,7 +25,12 @@ const TableContent = ( {item, handlerUpdate, handlerDelete, inputChanger, handle
   return (
     <>
       <td className="px-4">
-        <input onChange={(e)=>handlerCheckBox(e, item.id)} type="checkbox" name="checkbox" id="" checked={check && true || null} />
+        {check && 
+          <input onChange={(e)=>handlerCheckBox(e, item.id)} type="checkbox" name="checkbox" checked={check && true || null} />
+        }
+        {!check && 
+          <input onChange={(e)=>handlerCheckBox(e, item.id)} type="checkbox" name="checkbox"  />
+        }
       </td>
       <td className="px-8 w-fit">{inputChanger !== item.id  ? item.name : <input type='text' onChange={(e)=>handlerUpdateDetails('name', e)} className='border border-gray-300 w-32' />}</td>
       <td className="px-8 w-fit">{inputChanger !== item.id  ? item.email : <input type='text' onChange={(e)=>handlerUpdateDetails('email', e)} className='border border-gray-300 w-32' />}</td>
