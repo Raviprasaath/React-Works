@@ -56,17 +56,26 @@ const TableBody = ( {check} ) => {
   }, [dataDisplay])
 
   useEffect(()=> {
-    setPageStart((currentPage*10) - 10);
-    setPageEnd(currentPage*10)
-  }, [currentPage])
-
-  console.log(pageStart, pageEnd)
+    if (searchResult.length === 0) {
+      setPageStart((currentPage*10) - 10);
+      setPageEnd(currentPage*10)
+    } else {
+      setPageStart(0);
+      setPageEnd(searchResult.length % 10);
+    }
+  }, [currentPage, searchResult])
 
   useEffect(()=> {
     if (check) {
       const temp = [];
-      for (let i=pageStart; i<10; i++) {
-        temp.push(i+1);
+      if (searchResult.length === 0) {
+        for (let i=pageStart; i<10; i++) {
+          temp.push(i+1);
+        }
+      } else {
+        for (let i=pageStart; i<searchResult.length; i++) {
+          temp.push(i+1);
+        }
       }
       const temp2 = dataDisplay.filter((item, index) => {
         return !temp.includes(index + 1);
@@ -107,7 +116,6 @@ const TableBody = ( {check} ) => {
       item.email.toLowerCase().includes(searchValue?.toLowerCase()) ||
       item.role.toLowerCase().includes(searchValue?.toLowerCase())
     );
-    console.log(searchValue);
     if (searchValue.length !== 0) {
       setSearchResult(filteredData);
     } else if (searchValue.length === 0) {
