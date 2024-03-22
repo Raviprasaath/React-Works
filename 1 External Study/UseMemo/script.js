@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react'
 
-// Regular functional component
-const MyComponent = ({ value }) => {
-  console.log('Component rendered');
-  return <p>{value}</p>;
-};
+function App() {
+  const [count, setCount] = useState(0);
 
-// Memoized component using React.memo
-const MemoizedComponent = React.memo(MyComponent);
+  function expensive(num) {
+    for(let i=0; i<10000; i++) {
+      num += i;
+    }
+    return num;
+  }
 
-// Parent component
-const ParentComponent = () => {
-  const [count, setCount] = React.useState(0);
+  const handlerNum = () => {
+    setCount((prev)=>prev+1);
+  }
+  const ans = useMemo(()=>expensive(count), [count]);
 
   return (
-    <div>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <MemoizedComponent value={count} />
-    </div>
-  );
-};
+    <>
+      <button onClick={()=>handlerNum()}>Click</button>
+      <p>{ans}</p>
+    </>
+  )
+}
 
-export default ParentComponent;
+export default App

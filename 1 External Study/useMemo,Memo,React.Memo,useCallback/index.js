@@ -8,9 +8,33 @@ Behavior: Wrapping a functional component with React.memo memoizes the result of
 
 Example:
 
+import React from 'react';
+
 const MyComponent = React.memo(function MyComponent(props) {
-  Component logic
+  console.log("Rendering MyComponent...");
+  return (
+    <div>
+      <h1>Hello, {props.name}!</h1>
+      <p>This component is memoized using React.memo.</p>
+    </div>
+  );
 });
+
+const App = () => {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <h1>React.memo Example</h1>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment Count</button>
+      <MyComponent name="Alice" />
+    </div>
+  );
+};
+
+export default App;
+
 
 
 -----------------------------------------------------------------------------------------------
@@ -22,7 +46,38 @@ Behavior: useMemo accepts a function and an array of dependencies. It will recom
 
 Example:
 
-const memoizedValue = useMemo(() => expensiveFunction(a, b), [a, b]);
+import React, { useState, useMemo } from 'react';
+
+const MyComponent = () => {
+  const [number, setNumber] = useState(0);
+
+  // Expensive calculation function
+  const expensiveCalculation = (num) => {
+    console.log("Performing expensive calculation...");
+    // Simulating an expensive calculation
+    for (let i = 0; i < 1000000000; i++) {
+      num += i;
+    }
+    return num;
+  };
+
+  // Memoized result of the expensive calculation
+  const memoizedResult = useMemo(() => expensiveCalculation(number), [number]);
+
+  return (
+    <div>
+      <h1>useMemo Example</h1>
+      <p>Number: {number}</p>
+      <button onClick={() => setNumber(prevNumber => prevNumber + 1)}>
+        Increment Number
+      </button>
+      <p>Memoized Result: {memoizedResult}</p>
+    </div>
+  );
+};
+
+export default MyComponent;
+
 
 -----------------------------------------------------------------------------------------------
 
