@@ -44,7 +44,7 @@ const Pokemon = () => {
                     <option value = "pikachu">Pickachu</option>
                 </select>
                 <div style = {{border: "2px solid black", minWidth:"300px", padding:"10px"}}>
-                    <p>Name: {selectedPokemon?.name} </p>                    
+                    <p>Name: {selectedPokemon?.name} </p>
                     <p>Height: {selectedPokemon?.height} </p>
                     <p>Weight: {selectedPokemon?.weight} </p>
                     <p>Abilities: {selectedPokemon?.abilityDataString} </p>
