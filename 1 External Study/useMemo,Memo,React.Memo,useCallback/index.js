@@ -36,6 +36,18 @@ const App = () => {
 export default App;
 
 
+-----------------------------------------------------------------------------------------------
+memo (from React):
+
+Type: Function.
+Purpose: It's similar to React.memo, but it's used for class components instead of functional components.
+Behavior: By wrapping a class component with memo, you can achieve similar memoization behavior as with React.memo. It will shallowly compare props and prevent re-renders if props remain the same.
+
+class MyComponent extends React.Component {
+  // Component logic
+}
+export default React.memo(MyComponent);
+
 
 -----------------------------------------------------------------------------------------------
 useMemo:
@@ -81,18 +93,6 @@ export default MyComponent;
 
 -----------------------------------------------------------------------------------------------
 
-memo (from React):
-
-Type: Function.
-Purpose: It's similar to React.memo, but it's used for class components instead of functional components.
-Behavior: By wrapping a class component with memo, you can achieve similar memoization behavior as with React.memo. It will shallowly compare props and prevent re-renders if props remain the same.
-
-class MyComponent extends React.Component {
-  // Component logic
-}
-export default React.memo(MyComponent);
-
------------------------------------------------------------------------------------------------
 
 useCallback:
 

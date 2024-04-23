@@ -2,10 +2,7 @@ import LogInPage from './Components/LogIn/LogInPage'
 import HomePage from './Components/Home/HomePage'
 import './App.css'
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
   const router = createBrowserRouter([

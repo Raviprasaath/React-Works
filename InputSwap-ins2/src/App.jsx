@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-
-
 // rendering list of items
 // code from code sandbox
 

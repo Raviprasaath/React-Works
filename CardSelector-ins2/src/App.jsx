@@ -34,8 +34,8 @@ export default function App() {
       <section>
         {DATA.map((superHero) => (
           <div 
-          className={superHero.id === activeCardId ? "active" : ""} 
-          onClick={handleClick}
+            className={superHero.id === activeCardId ? "active" : ""} 
+            onClick={handleClick}
             id={superHero.id}
           >
             {superHero.name}
