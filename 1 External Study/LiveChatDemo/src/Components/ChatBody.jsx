@@ -4,7 +4,7 @@ import { RandomNames } from './RandomNames';
 
 const ChatBody = () => {
 
-    const {message} = useSelector((state)=>state.chat);
+    const { message } = useSelector((state)=>state.chat);
     const name = RandomNames();
   return (
     <div>

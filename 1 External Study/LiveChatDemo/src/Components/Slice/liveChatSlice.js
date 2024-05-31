@@ -13,5 +13,5 @@ const liveChatSlice = createSlice({
     }
 })
 
-export const {addMessages} = liveChatSlice.actions;
+export const { addMessages } = liveChatSlice.actions;
 export default liveChatSlice.reducer;
