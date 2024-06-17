@@ -14,10 +14,17 @@ const ButtonComponent = () => {
         <Button variant="contained" disabled >Disabled</Button>
         <br />
         <br />
-        <Button color='error' onClick={()=>console.log('clicked')} variant="contained" disableElevation >Contain</Button>
+        <Button color='error' size='large' onClick={()=>console.log('clicked')} variant="contained" disableElevation >Contain</Button>
         <br />
         <br />
-
+        <Button sx={{
+            backgroundColor: 'yellow',
+            color: 'red',
+            "&:hover": {
+                backgroundColor: 'red',
+                color: 'yellow',
+            }
+            }} variant="contained">Contained</Button>
     </>
   )
 }
