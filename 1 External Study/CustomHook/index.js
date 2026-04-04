@@ -25,7 +25,14 @@ export const useScreenSize = () => {
 // const screenSize = useScreenSize();
 // const isMobile = screenSize < 960;
 
-// ------------Example 2
+
+
+
+
+
+
+
+// -------------------------------------------------------------------Example 2
 
 import React, { useState } from 'react';
 
@@ -59,7 +66,15 @@ function CounterComponent() {
 
 export default CounterComponent;
 
-// Example 3
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------- Example 3
 
 import { useEffect, useState } from "react";
 
